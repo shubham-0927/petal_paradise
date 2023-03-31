@@ -45,7 +45,11 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             // Get the entered username and password
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
-            if (username != "") {
+            val intent = Intent(context, ShoppingActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+            //checks for empty username
+ /*           if (username != "") {
 
                 // Authenticate the user with MongoDB Realm
                 app.loginAsync(Credentials.emailPassword(username, password)) { result ->
@@ -61,6 +65,9 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                     }
                 }
             }
+            else{
+                Toast.makeText(context, "Enter Email and Password", Toast.LENGTH_SHORT).show()
+            }*/
         }
     }
 }

@@ -14,7 +14,7 @@
         <action
             android:id="@+id/action_introductionFragment_to_loginFragment2"
             app:destination="@id/loginFragment2"
-            app:enterAnim="@anim/from_bottom"
+            app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out" />
     </fragment>
     <fragment
@@ -32,14 +32,6 @@
         android:name="com.example.plants.fragments.shopping.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment2_to_searchFragment2"
-            app:destination="@id/searchFragment2"
-            app:enterAnim="@anim/slide_in" />
     </fragment>
-    <fragment
-        android:id="@+id/searchFragment2"
-        android:name="com.example.plants.fragments.shopping.SearchFragment"
-        android:label="SearchFragment"
-        tools:layout="@layout/fragment_search"/>
+
 </navigation>

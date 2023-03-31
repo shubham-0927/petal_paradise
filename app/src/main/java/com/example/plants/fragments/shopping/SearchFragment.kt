@@ -24,6 +24,8 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.example.plants.R
 import com.example.plants.activities.ShoppingActivity
 import com.example.plants.databinding.FragmentSearchBinding
@@ -81,8 +83,13 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
             }
         }
         tvOutput.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?g=${tvOutput.text}"))
-            startActivity(intent)
+/*            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?g=${tvOutput.text}"))
+            startActivity(intent)*/
+            fragmentManager?.commit {
+                setReorderingAllowed(true)
+                // Replace whatever is in the fragment_container view with this fragment
+                replace<PlantDetailsFragment>(R.id.shoppinHostFragment)
+            }
         }
         imageView.setOnLongClickListener{
             requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)

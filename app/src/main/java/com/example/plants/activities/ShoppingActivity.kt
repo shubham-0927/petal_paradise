@@ -30,7 +30,6 @@ class ShoppingActivity : AppCompatActivity() {
                 R.id.homeFragment ->/*replaceFragment(HomeFragment())  */ fragmentManager.commit {
                     setReorderingAllowed(true)
                     // Replace whatever is in the fragment_container view with this fragment
-                    remove(HomeFragment())
                     replace<HomeFragment>(R.id.shoppinHostFragment)
                 }
                 R.id.searchFragment ->   fragmentManager.commit {
