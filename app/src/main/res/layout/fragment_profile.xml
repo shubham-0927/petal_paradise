@@ -82,11 +82,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="278dp"
+                android:layout_height="407dp"
                 android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/updateProfile"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal">
@@ -107,7 +108,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_thin"
-                        android:text="My Orders"
+                        android:text="Update Profile"
                         android:textColor="@color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -148,7 +149,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_thin"
-                        android:text="settings"
+                        android:text="My Orders"
                         android:textColor="@color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -189,7 +190,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_thin"
-                        android:text="settings"
+                        android:text="Cart"
                         android:textColor="@color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -203,6 +204,7 @@
                         android:layout_weight="1"
                         app:srcCompat="@drawable/angle_right" />
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
@@ -229,7 +231,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/poppins_thin"
-                        android:text="settings"
+                        android:text="Settings"
                         android:textColor="@color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -244,7 +246,21 @@
                         app:srcCompat="@drawable/angle_right" />
                 </LinearLayout>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/switchButton"
+                    style="@style/greenButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="45dp"
+                    android:padding="5dp"
+                    android:text="Lets start  >"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.501"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
