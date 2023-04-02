@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_green"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.Guideline
@@ -16,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Load Image"
+        android:drawableLeft="@drawable/baseline_image_24"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/green_leaf"
         app:layout_constraintEnd_toStartOf="@id/guideline"
@@ -28,6 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Take Image"
+        android:drawableLeft="@drawable/baseline_camera_24"
+        android:drawableTint="@color/black"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/green_leaf"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +51,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         android:elevation="10dp"
-        android:backgroundTint="@color/g_gray700"/>
+        android:background="@color/white" />
     <TextView
         android:id="@+id/about_img"
         android:layout_width="wrap_content"
@@ -72,11 +76,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NOTE : Long press the on the image to save it"
+        android:text="Long press the on the image to save it. Click on plant name for more details."
+        android:ems="15"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
         app:layout_constraintTop_toBottomOf="@id/about_img"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         android:textSize="15sp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
