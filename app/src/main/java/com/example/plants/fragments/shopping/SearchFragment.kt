@@ -89,6 +89,7 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
                 setReorderingAllowed(true)
                 // Replace whatever is in the fragment_container view with this fragment
                 replace<PlantDetailsFragment>(R.id.shoppinHostFragment)
+                addToBackStack(null)
             }
         }
         imageView.setOnLongClickListener{

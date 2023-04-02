@@ -47,7 +47,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             val password = passwordEditText.text.toString()
             val intent = Intent(context, ShoppingActivity::class.java)
             startActivity(intent)
-            activity?.finish()
+//            activity?.finish()
             //checks for empty username
  /*           if (username != "") {
 
