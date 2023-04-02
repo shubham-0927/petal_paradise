@@ -16,6 +16,11 @@
             app:destination="@id/loginFragment2"
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_introductionFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment2"
@@ -32,6 +37,20 @@
         android:name="com.example.plants.fragments.shopping.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.plants.fragments.loginRegister.RegistrationFragment"
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registrationFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_registrationFragment_to_introductionFragment"
+            app:destination="@id/introductionFragment" />
     </fragment>
 
 </navigation>

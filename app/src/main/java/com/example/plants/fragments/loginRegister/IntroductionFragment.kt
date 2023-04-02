@@ -25,13 +25,18 @@ class IntroductionFragment: Fragment(R.layout.fragment_introduction) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val startbtn = binding.buttonStart
+//        val startbtn = binding.buttonStart
+        val login = binding.login
+        val register = binding.reg
 //        val fragmentManager = getParentFragmentManager()
-        startbtn.setOnClickListener{
+        login.setOnClickListener{
 /*            val transaction = fragmentManager.beginTransaction()
             transaction.replace(R.id.introductionFragment,LoginFragment()).commit()*/
 
             Navigation.findNavController(view).navigate(R.id.action_introductionFragment_to_loginFragment2)
+        }
+        register.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_introductionFragment_to_registrationFragment)
         }
     }
 }

@@ -64,6 +64,8 @@ dependencies {
     implementation 'androidx.core:core-ktx:+'
     implementation 'androidx.core:core-ktx:+'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.0'
+    implementation 'androidx.core:core-ktx:+'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     def core_version = "1.9.0"
 
     // Java language implementation
