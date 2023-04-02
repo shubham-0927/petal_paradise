@@ -1,13 +1,11 @@
-package com.example.plants
+package com.example.plants.activities
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
+import com.example.plants.R
 import com.example.plants.databinding.ActivityMainBinding
 import com.example.plants.fragments.shopping.CartFragment
 import com.example.plants.fragments.shopping.HomeFragment
@@ -21,7 +19,8 @@ class ShoppingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-  /*      replaceFragment(HomeFragment())*/
+
+        replaceFragment(HomeFragment())
         val fragmentManager = supportFragmentManager
 //        val navController = findNavController(R.id.shoppinHostFragment)
 //        binding.bottomNavigation.setupWithNavController(/*navController*/ findNavController(R.id.shoppinHostFragment))
@@ -31,24 +30,20 @@ class ShoppingActivity : AppCompatActivity() {
                 R.id.homeFragment ->/*replaceFragment(HomeFragment())  */ fragmentManager.commit {
                     setReorderingAllowed(true)
                     // Replace whatever is in the fragment_container view with this fragment
-                    remove(HomeFragment())
                     replace<HomeFragment>(R.id.shoppinHostFragment)
                 }
                 R.id.searchFragment ->   fragmentManager.commit {
                     setReorderingAllowed(true)
-                    remove(HomeFragment())
                     // Replace whatever is in the fragment_container view with this fragment
                     replace<SearchFragment>(R.id.shoppinHostFragment)
                 }
                 R.id.cartFragment ->fragmentManager.commit {
                     setReorderingAllowed(true)
-                    remove(HomeFragment())
                     // Replace whatever is in the fragment_container view with this fragment
                     replace<CartFragment>(R.id.shoppinHostFragment)
                 }
                 R.id.profileFragment ->fragmentManager.commit {
                     setReorderingAllowed(true)
-                    remove(HomeFragment())
                     // Replace whatever is in the fragment_container view with this fragment
                     replace<ProfileFragment>(R.id.shoppinHostFragment)
                 }
@@ -65,9 +60,9 @@ class ShoppingActivity : AppCompatActivity() {
 
     fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
-        /*val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.shoppinHostFragment,fragment)
-        fragmentTransaction.commit()*/
+        fragmentTransaction.commit()
 
    /*     // Create and commit a new transaction
         fragmentManager.commit {

@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/light_green"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -42,13 +40,14 @@
         android:layout_width="300dp"
         android:layout_height="500dp"
         android:layout_marginTop="16dp"
-        android:background="@color/white"
-        tools:ignore="MissingConstraints"
+        tools:ignore="HardcodedText,MissingConstraints"
+        android:contentDescription="plant image display here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:elevation="10dp" />
+        android:elevation="10dp"
+        android:backgroundTint="@color/g_gray700"/>
     <TextView
         android:id="@+id/about_img"
         android:layout_width="wrap_content"

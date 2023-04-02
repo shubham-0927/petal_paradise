@@ -80,8 +80,9 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeHeader"
         app:tabIndicator="@null"
@@ -89,6 +90,7 @@
         app:tabRippleColor="@color/white"
         app:tabSelectedTextColor="@color/black"
         app:tabTextAppearance="@style/tabLayout_text" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpagerHome"
         android:layout_width="0dp"

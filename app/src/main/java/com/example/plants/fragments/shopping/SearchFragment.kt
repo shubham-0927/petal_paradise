@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -13,7 +12,6 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.SyncStateContract.Helpers.insert
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -26,8 +24,10 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.example.plants.R
-import com.example.plants.ShoppingActivity
+import com.example.plants.activities.ShoppingActivity
 import com.example.plants.databinding.FragmentSearchBinding
 import com.example.plants.ml.PlantModel
 import org.tensorflow.lite.support.image.TensorImage
@@ -83,8 +83,13 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
             }
         }
         tvOutput.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?g=${tvOutput.text}"))
-            startActivity(intent)
+/*            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?g=${tvOutput.text}"))
+            startActivity(intent)*/
+            fragmentManager?.commit {
+                setReorderingAllowed(true)
+                // Replace whatever is in the fragment_container view with this fragment
+                replace<PlantDetailsFragment>(R.id.shoppinHostFragment)
+            }
         }
         imageView.setOnLongClickListener{
             requestPermissionLauncher.launch(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)

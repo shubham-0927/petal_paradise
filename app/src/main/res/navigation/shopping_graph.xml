@@ -3,27 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shopping_graph"
-    app:startDestination="@id/cartFragment"
-    >
+    app:startDestination="@id/introductionFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/introductionFragment"
+        android:name="com.example.plants.fragments.loginRegister.IntroductionFragment"
+        android:label="IntroductionFragment"
+        tools:layout="@layout/fragment_introduction">
+
+        <action
+            android:id="@+id/action_introductionFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.plants.fragments.loginRegister.LoginFragment"
+        android:label="LoginFragment2"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment2_to_homeFragment2"
+            app:destination="@id/homeFragment2"
+            app:enterAnim="@anim/slide_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
         android:name="com.example.plants.fragments.shopping.HomeFragment"
         android:label="HomeFragment"
-        tools:layout ="@layout/fragment_home"/>
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.plants.fragments.shopping.SearchFragment"
-        android:label="SearchFragment"
-        tools:layout ="@layout/fragment_search"/>
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.example.plants.fragments.shopping.CartFragment"
-        android:label="CartFragment"
-        tools:layout ="@layout/fragment_cart"/>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.plants.fragments.shopping.ProfileFragment"
-        android:label="ProfileFragment"
-        tools:layout ="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_home">
+    </fragment>
+
 </navigation>
