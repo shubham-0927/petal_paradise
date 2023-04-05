@@ -49,7 +49,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             startActivity(intent)
 //            activity?.finish()
             //checks for empty username
- /*           if (username != "") {
+ /*           if (username.isNotEmpty() && password.isNotEmpty()) {
 
                 // Authenticate the user with MongoDB Realm
                 app.loginAsync(Credentials.emailPassword(username, password)) { result ->
