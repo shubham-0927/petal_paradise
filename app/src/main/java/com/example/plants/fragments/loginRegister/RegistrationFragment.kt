@@ -65,6 +65,12 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
 /*        val config = RealmConfiguration.Builder().name("Project 0").build()
         val backgroundThreadRealm : Realm = Realm.getInstance(config)*/
         val realm =Realm.getDefaultInstance()
+        galleryButton = binding.selectButton
+        galleryButtonText = binding.profilepictext
+        galleryButton.setOnClickListener {
+            Toast.makeText(context, "select a image", Toast.LENGTH_SHORT).show()
+            openGallery()
+        }
         viewModel = ViewModelProvider(this, RegisterViewModelFactory(app)).get(RegisterViewModel::class.java)
         binding.register.setOnClickListener{
 
@@ -75,12 +81,6 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
             val mobilenumber = binding.mobilenumber.text.toString()
             val dob = binding.birthdate.text.toString()
             val addr = binding.address.text.toString()
-            galleryButton = binding.selectButton
-            galleryButtonText = binding.profilepictext
-            galleryButton.setOnClickListener {
-                Toast.makeText(context, "select a image", Toast.LENGTH_SHORT).show()
-                openGallery()
-            }
             val userData = UserData(email,password)
             //create new Users object
             val users = Users()
@@ -145,13 +145,14 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                         val realm = Realm.getDefaultInstance()
                         val task = realm.where(Users::class.java).equalTo("email", email).findFirst()
                         val intent = Intent(context, ShoppingActivity::class.java)
-                        startActivity(intent)
+
                         intent.putExtra("email",task?.email)
                         intent.putExtra("username",task?.username)
                         intent.putExtra("mobilenumber",task?.mobilenumber)
                         intent.putExtra("dob",task?.dob)
                         intent.putExtra("address",task?.address)
                         intent.putExtra("image",task?.image)
+                        startActivity(intent)
                         Toast.makeText(context, "Successfully registered and login", Toast.LENGTH_SHORT).show()
                         activity?.finish()
                     } else {

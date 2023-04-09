@@ -54,9 +54,9 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             val password = passwordEditText.text.toString()
 
             //call viewmodel to store values
-  /*          val viewModel = ViewModelProvider(requireActivity()).get(UserDetailsViewModel::class.java)*/
+//            val viewModel = ViewModelProvider(requireActivity()).get(UserDetailsViewModel::class.java)
 
-  /*          val intent = Intent(context, ShoppingActivity::class.java)
+/*            val intent = Intent(context, ShoppingActivity::class.java)
             startActivity(intent)*/
 //            activity?.finish()
             //checks for empty username
@@ -70,8 +70,8 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                         val email = user?.profile?.email
                         val realm = Realm.getDefaultInstance()
                         val task = realm.where(Users::class.java).equalTo("email", email).findFirst()
-/*                      Log.v("EXAMPLE", "Fetched object's username: ${task?.username}")
-                        Log.v("EXAMPLE", "Fetched object' email : $email")
+/*                        Log.v("EXAMPLE", "Fetched object's username: ${task?.username}")
+                        Log.v("EXAMPLE", "Fetched object by primary key: $email")
                        //storing values in viewModel
                         if (task != null) {
                             viewModel.setValues(task.email,task.username,task.mobilenumber, task.dob, task.address, task.image)
@@ -89,15 +89,17 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                         }*/
 
                         // Successful login, navigate to main activity
+                        Log.v("EXAMPLE", "Fetched object's username: ${task?.username}")
+                        Log.v("EXAMPLE", "Fetched object by primary key: $email")
                         val intent = Intent(context, ShoppingActivity::class.java)
                         intent.putExtra("email",task?.email)
                         intent.putExtra("username",task?.username)
                         intent.putExtra("mobilenumber",task?.mobilenumber)
                         intent.putExtra("dob",task?.dob)
                         intent.putExtra("address",task?.address)
-                        intent.putExtra("image",task?.image)
+                        intent.putExtra("image",""/*task?.image*/)
                         startActivity(intent)
-                        activity?.finish()
+//                        activity?.finish()
                     } else {
                         // Failed login, display error message
                         val errorMessage = result.error.errorMessage
