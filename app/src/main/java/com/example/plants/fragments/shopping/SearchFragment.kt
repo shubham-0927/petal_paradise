@@ -10,12 +10,14 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -55,6 +57,10 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
     @SuppressLint("IntentReset")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            val window : Window? = activity?.window
+            window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.light_green)
+        }
 
         imageView = binding.imgDetect
         button = binding.btnCaptureImage
