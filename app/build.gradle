@@ -111,6 +111,8 @@ dependencies {
     implementation 'io.realm.kotlin:library-sync:1.6.0'
     implementation 'io.realm:realm-gradle-plugin:10.11.1'
     implementation 'org.mongodb:mongodb-driver-sync:4.3.0'
+    implementation 'io.realm:android-adapters:4.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 /*    implementation 'io.realm.mongodb:realm-mongodb-android:10.7.0'
     implementation 'io.realm.mongodb:realm-sync:10.7.0'*/
 
