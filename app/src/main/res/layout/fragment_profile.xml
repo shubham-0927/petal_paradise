@@ -83,22 +83,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="407dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 android:orientation="vertical">
 
+                <!--  Update Layout  -->
                 <LinearLayout
                     android:id="@+id/updateProfile"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/linear1"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="25dp"
-                        app:srcCompat="@drawable/settings_sliders" />
+                        app:srcCompat="@drawable/user_update" />
 
                     <TextView
                         android:id="@+id/linearText1"
@@ -110,13 +113,13 @@
                         android:fontFamily="@font/poppins_thin"
                         android:text="Update Profile"
                         android:textColor="@color/black"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/icon1"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
@@ -128,18 +131,22 @@
                     android:layout_height="2dp"
                     android:background="#c0c0c0" />
 
+                <!--  My Orders Layout  -->
                 <LinearLayout
+                    android:id="@+id/myOrders"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/linear2"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="25dp"
-                        app:srcCompat="@drawable/settings_sliders" />
+                        app:srcCompat="@drawable/list" />
 
                     <TextView
                         android:id="@+id/linearText2"
@@ -151,13 +158,13 @@
                         android:fontFamily="@font/poppins_thin"
                         android:text="My Orders"
                         android:textColor="@color/black"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/icon2"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
@@ -169,56 +176,60 @@
                     android:layout_height="2dp"
                     android:background="#c0c0c0" />
 
+                <!--  Cart Layout  -->
+                <!--                <LinearLayout-->
+                <!--                    android:id="@+id/myCart"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="50dp"-->
+                <!--                    android:layout_marginTop="25dp"-->
+                <!--                    android:orientation="horizontal">-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/linear3"-->
+                <!--                        android:layout_width="30dp"-->
+                <!--                        android:layout_height="30dp"-->
+                <!--                        android:layout_gravity="center_vertical"-->
+                <!--                        android:layout_marginStart="25dp"-->
+                <!--                        app:srcCompat="@drawable/settings_sliders" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/linearText3"-->
+                <!--                        android:layout_width="258dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_gravity="center_vertical"-->
+                <!--                        android:layout_marginStart="20dp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:fontFamily="@font/poppins_thin"-->
+                <!--                        android:text="Cart"-->
+                <!--                        android:textColor="@color/black"-->
+                <!--                        android:textSize="22sp"-->
+                <!--                        android:textStyle="bold" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/icon3"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="20dp"-->
+                <!--                        android:layout_gravity="center_vertical"-->
+                <!--                        android:layout_marginEnd="10dp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        app:srcCompat="@drawable/angle_right" />-->
+                <!--                </LinearLayout>-->
+
+
+
+                <!--  Settings Layout  -->
                 <LinearLayout
+                    android:id="@+id/settings"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/linear3"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="25dp"
-                        app:srcCompat="@drawable/settings_sliders" />
-
-                    <TextView
-                        android:id="@+id/linearText3"
-                        android:layout_width="258dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="20dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins_thin"
-                        android:text="Cart"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/icon3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/angle_right" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#c0c0c0" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:id="@+id/linear4"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="25dp"
                         app:srcCompat="@drawable/settings_sliders" />
@@ -233,31 +244,61 @@
                         android:fontFamily="@font/poppins_thin"
                         android:text="Settings"
                         android:textColor="@color/black"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/icon4"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/angle_right" />
                 </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/switchButton"
-                    style="@style/greenButtonStyle"
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_marginTop="45dp"
-                    android:padding="5dp"
-                    android:text="Lets start  >"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="2dp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:id="@+id/about"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/linear5"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="25dp"
+                        app:srcCompat="@drawable/info" />
+
+                    <TextView
+                        android:id="@+id/linearText5"
+                        android:layout_width="258dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_thin"
+                        android:text="About"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/icon5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/angle_right" />
+                </LinearLayout>
 
             </LinearLayout>
 
