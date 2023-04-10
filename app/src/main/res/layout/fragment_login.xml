@@ -11,8 +11,6 @@
         android:id="@+id/linearLayoutCompat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-
         android:orientation="vertical"
         android:gravity="center"
         android:padding="10dp"
@@ -20,8 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
@@ -70,21 +67,39 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/linearLayoutCompat"
             app:layout_constraintStart_toStartOf="@id/linearLayoutCompat"
-            app:layout_constraintTop_toBottomOf="@id/usernameEditText" />
+            app:layout_constraintTop_toBottomOf="@id/usernameEditText"
+            android:autofillHints="" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/loginButton"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:textColor="#FFFBF6"
-            android:backgroundTint="@color/green_blue"
             android:background="@drawable/ovalbutton1"
-            android:text="signin"
+            android:layout_marginTop="30dp">
+        <ProgressBar
+            android:id="@+id/login_progess_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/loginTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Sign In"
+            android:textSize="20sp"
+            android:visibility="visible"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

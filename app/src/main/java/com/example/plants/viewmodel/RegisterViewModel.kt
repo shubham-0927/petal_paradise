@@ -14,17 +14,12 @@ class RegisterViewModel(private val app: io.realm.mongodb.App) : ViewModel() {
     val registrationResult: LiveData<Result<User>> = _registrationResult
 
      fun registerUsers(userData: UserData){
-        val credentials = Credentials.emailPassword(userData.email,userData.password)
+         Credentials.emailPassword(userData.email,userData.password)
         runBlocking {
             app.emailPassword.registerUserAsync(
                 userData.email,
                 userData.password
-            ){ result ->
-                if (result.isSuccess) {
-
-                } else {
-
-                }
+            ){
             }
 
             }

@@ -8,16 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.example.plants.R
 import com.example.plants.activities.ShoppingActivity
 import com.example.plants.data.Users
 import com.example.plants.databinding.FragmentLoginBinding
-import com.example.plants.fragments.shopping.ProfileFragment
-import com.example.plants.viewmodel.UserDetailsViewModel
 import io.realm.Realm
-import io.realm.kotlin.mongodb.User
 import io.realm.mongodb.App
 import io.realm.mongodb.AppConfiguration
 import io.realm.mongodb.Credentials
@@ -36,7 +31,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        setContentView(R.layout.activity_login_reg)
-        Realm.init(context)
+        context?.let { Realm.init(it) }
 
         // Initialize the MongoDB Realm app instance
         val appID = "application-0-yyhyb"
@@ -53,6 +48,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
 
+
             //call viewmodel to store values
 //            val viewModel = ViewModelProvider(requireActivity()).get(UserDetailsViewModel::class.java)
 
@@ -63,6 +59,8 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
             if (username.isNotEmpty() && password.isNotEmpty()) {
 
                 // Authenticate the user with MongoDB Realm
+                binding.loginTV.visibility = View.INVISIBLE
+                binding.loginProgessBar.visibility = View.VISIBLE
                 app.loginAsync(Credentials.emailPassword(username, password)) { result ->
                     if (result.isSuccess) {
 
@@ -88,7 +86,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                             arguments = bundle
                         }*/
 
-                        // Successful login, navigate to main activity
+                        // Successful login, navigate to main activity and pass user details to shopping activity
                         Log.v("EXAMPLE", "Fetched object's username: ${task?.username}")
                         Log.v("EXAMPLE", "Fetched object by primary key: $email")
                         val intent = Intent(context, ShoppingActivity::class.java)
@@ -99,9 +97,11 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                         intent.putExtra("address",task?.address)
                         intent.putExtra("image",""/*task?.image*/)
                         startActivity(intent)
-//                        activity?.finish()
+                       activity?.finish()
                     } else {
                         // Failed login, display error message
+                        binding.loginTV.visibility = View.VISIBLE
+                        binding.loginProgessBar.visibility = View.INVISIBLE
                         val errorMessage = result.error.errorMessage
                         Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
                     }

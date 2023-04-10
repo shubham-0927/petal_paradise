@@ -3,9 +3,6 @@ package com.example.plants.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.plants.data.Users
-import org.tensorflow.lite.support.image.TensorImage
-import java.net.Inet4Address
 
 class UserDetailsViewModel :ViewModel() {
     private val _email = MutableLiveData<String>()

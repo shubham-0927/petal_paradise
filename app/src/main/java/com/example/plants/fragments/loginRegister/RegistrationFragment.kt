@@ -74,6 +74,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
         viewModel = ViewModelProvider(this, RegisterViewModelFactory(app)).get(RegisterViewModel::class.java)
         binding.register.setOnClickListener{
 
+
             val email  = binding.userEmailET.text.toString()
             val password = binding.password.text.toString()
             val repass = binding.retypePass.text.toString()
@@ -109,6 +110,8 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 backgroundThreadRealm.executeTransaction { transactionRealm ->
                     transactionRealm.insert(task)
                 }*/
+                binding.registerTV.visibility = View.INVISIBLE
+                binding.registerProgessBar.visibility = View.VISIBLE
                 users._id = UUID.randomUUID().toString()
                 users.username = username
                 users.email = email
@@ -117,7 +120,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 users.address = addr
                 users.image = "imageUrl"
 
-                realm.executeTransaction{
+                realm.executeTransactionAsync{
                     realm->
                     realm.createObject(Users::class.java, users._id).apply {
                     this.username=  users.username
@@ -184,6 +187,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -199,26 +203,4 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
         }
     }
 
-/*
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        Realm.init(context)
-        val appID = "application-0-yyhyb"
-        val app = App(AppConfiguration.Builder(appID).build())
-        val username = binding.usernameET.text.toString()
-
-        val email = binding.userEmailET.text.toString()
-        val password = binding.password.text.toString()
-        val registerbutton= binding.register
-        val user = com.example.Plants.data.UserData(username,email,password)
-        val creadentials = Credentials.emailPassword(email, password)
-*//*        registerbutton.setOnClickListener(){
-            app.emailPasswordAuth.registerUserAsync(creadentials).addOnCompleteListener{
-            task -> if(task.isSuccessful){
-            val user = User(email,password,name)}
-            else{
-            }
-            }
-        }*//*
-    }*/
 }
