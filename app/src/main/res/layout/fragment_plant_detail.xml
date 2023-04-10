@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_light"
+                android:fontFamily="@font/poppins_thin"
                 android:text="Category"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_thin"
+                android:fontFamily="@font/poppins_light"
                 android:text="Indoor"
                 android:textSize="18sp"
                 tools:ignore="HardcodedText" />
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_light"
+                android:fontFamily="@font/poppins_thin"
                 android:text="Size"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
@@ -45,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_thin"
+                android:fontFamily="@font/poppins_light"
                 android:text="Small"
                 android:textSize="18sp"
                 tools:ignore="HardcodedText" />
@@ -53,18 +53,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_light"
+                android:fontFamily="@font/poppins_thin"
                 android:text="Plant"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText" />
-
             <TextView
+                android:id="@+id/plantNameSci"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_thin"
-                android:text="Snake Plant"
+                android:fontFamily="@font/poppins_light"
+                android:text="Dracaena trifasciata"
                 android:textSize="18sp"
                 tools:ignore="HardcodedText" />
+
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -83,19 +84,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingStart="5dp"
+                android:paddingStart="10dp"
                 android:paddingEnd="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+
+
                 <TextView
-                    android:id="@+id/plantNameSci"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppins_thin"
-                    android:text="Dracaena trifasciata"
+                    android:text="Snake Plant"
+                    android:paddingTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:textSize="22sp"
                     tools:ignore="HardcodedText" />
 
@@ -105,7 +108,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:padding="5dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:src="@drawable/search" />
             </LinearLayout>
 

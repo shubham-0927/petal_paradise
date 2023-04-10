@@ -1,9 +1,13 @@
 package com.example.plants.fragments.shopping
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.plants.R
 import com.example.plants.adapters.HomeViewpagerAdapter
@@ -26,6 +30,10 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.LOLLIPOP){
+            val window : Window? = activity?.window
+            window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.white)
+        }
         val categoriesFragments = arrayListOf<Fragment>(
             MainCategoryFragment(),
             IndoorFragment(),

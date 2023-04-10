@@ -11,8 +11,8 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,24 +25,24 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="80dp"
             android:fontFamily="@font/poppins_thin"
             android:text="Sign Up"
             android:textColor="@color/white"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
         <EditText
             android:id="@+id/usernameET"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/ic_profile"
+            android:drawableTint="@color/white"
             android:gravity="center"
             android:hint="User Name"
-            android:drawableLeft="@drawable/ic_profile"
             android:paddingStart="10dp"
-            android:drawableTint="@color/white"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:background="@drawable/ovalbutton"
             android:textSize="20sp" />
 
         <EditText
@@ -50,14 +50,14 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:paddingStart="10dp"
+            android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/baseline_email_24"
             android:gravity="center"
             android:hint="Email"
-            android:drawableLeft="@drawable/baseline_email_24"
             android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:background="@drawable/ovalbutton"
             android:textSize="20sp" />
 
         <EditText
@@ -65,14 +65,29 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:paddingStart="10dp"
+            android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/baseline_call_24"
             android:gravity="center"
             android:hint="Mobile Number"
-            android:drawableLeft="@drawable/baseline_call_24"
             android:inputType="phone"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/birthdate"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/baseline_date_range_24"
+            android:gravity="center"
+            android:hint="DOB (dd/mm/yyyy)"
+            android:inputType="date"
+            android:paddingStart="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="20sp" />
 
         <EditText
@@ -80,13 +95,13 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:paddingStart="10dp"
+            android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/baseline_edit_location_24"
             android:gravity="center"
             android:hint="Your Address"
-            android:drawableLeft="@drawable/baseline_edit_location_24"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:background="@drawable/ovalbutton"
             android:textSize="20sp" />
 
         <EditText
@@ -94,58 +109,63 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:paddingStart="10dp"
+            android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/baseline_vpn_key_24"
             android:gravity="center"
             android:hint="Password"
             android:inputType="textVisiblePassword"
-            android:drawableLeft="@drawable/baseline_vpn_key_24"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:background="@drawable/ovalbutton"
             android:textSize="20sp" />
+
         <EditText
             android:id="@+id/retypePass"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:paddingStart="10dp"
+            android:background="@drawable/ovalbutton"
+            android:drawableLeft="@drawable/baseline_vpn_key_24"
             android:gravity="center"
             android:hint="Retype Password"
             android:inputType="textVisiblePassword"
-            android:drawableLeft="@drawable/baseline_vpn_key_24"
+            android:paddingStart="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:background="@drawable/ovalbutton"
             android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ovalbutton2">
+
             <Button
                 android:id="@+id/selectButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/ovalbutton"
                 android:text="Choose"
-                android:backgroundTint="@color/green_blue"
-                android:textAllCaps="false"/>
+                android:layout_marginStart="10dp"
+                android:textAllCaps="false" />
+
             <TextView
                 android:id="@+id/profilepictext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="upload profile pic"
-                android:textColor="@color/black"
-                />
+                android:textColor="@color/black" />
         </LinearLayout>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/register"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_margin="25dp"
+            android:background="@drawable/ovalbutton1"
             android:text="register"
-            android:textColor="@color/white"
-            android:background="@drawable/ovalbutton1"/>
+            android:textColor="@color/white" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
