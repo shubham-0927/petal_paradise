@@ -1,5 +1,6 @@
 package com.example.plants.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,6 +21,9 @@ class RegisterViewModel(private val app: io.realm.mongodb.App) : ViewModel() {
                 userData.email,
                 userData.password
             ){
+                if (it.isSuccess){
+                    Log.v("S","register success : $it")
+                }
             }
 
             }

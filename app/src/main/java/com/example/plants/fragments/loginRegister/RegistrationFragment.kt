@@ -9,43 +9,43 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import com.example.plants.R
 import com.example.plants.activities.ShoppingActivity
-import com.example.plants.data.Task
 import com.example.plants.data.UserData
 import com.example.plants.data.Users
 import com.example.plants.databinding.FragmentRegisterBinding
+import com.example.plants.fragments.shopping.PlantDetailsFragment
 import com.example.plants.viewmodel.RegisterViewModel
 import com.example.plants.viewmodel.RegisterViewModelFactory
+import com.mongodb.ConnectionString
+import com.mongodb.MongoClientSettings
+import com.mongodb.client.MongoClient
+import com.mongodb.client.MongoClients
+import com.mongodb.client.MongoDatabase
 import io.realm.ImportFlag
 import io.realm.Realm
-import io.realm.RealmConfiguration
+import io.realm.kotlin.internal.interop.RealmAppT
 import io.realm.kotlin.mongodb.App
-
 import io.realm.mongodb.AppConfiguration
 import io.realm.mongodb.Credentials
-import okhttp3.internal.closeQuietly
-import java.util.UUID
+import io.realm.mongodb.sync.SyncConfiguration
+import org.bson.Document
+import java.util.*
+
 
 class RegistrationFragment: Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
-    private lateinit var app: App
     private lateinit var viewModel: RegisterViewModel
     val PICK_IMAGE_REQUEST = 1
     lateinit var galleryButton: Button
     lateinit var galleryButtonText : TextView
-/*
-    private lateinit var username :EditText
-    private lateinit var mobilenumber : EditText
-    private lateinit var dob : EditText
-    private lateinit var addr : EditText
-*/
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,12 +59,36 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view :View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         Realm.init( context)
+/*        val connectionString =
+            (*//* connectionString = *//* "mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority")
+        val settings = MongoClientSettings.builder()
+            .applyConnectionString(connectionString)
+            .build()
+        val mongoClient = MongoClients.create(settings)
+        val database = mongoClient.getDatabase("patalParadisedb")*/
+
+/*        val uri = "mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority"
+        val connString = ConnectionString(uri);
+        val mongoClient : MongoClient = MongoClients.create(connString)
+        val database: MongoDatabase = mongoClient.getDatabase("patalParadisedb")*/
+
+/*        val uri = MongoClientURI("mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority")
+        val client = MongoClients.create(uri.toString())
+        val database =client.getDatabase("patalParadisedb")*/
+
+/*        val settings = MongoClientSettings.builder()
+            .applyConnectionString(ConnectionString("mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority"))
+            .build()
+        val client = MongoClients.create(settings)*/
+//        val collection = database.getCollection("users")
+
 
         val appID = "application-0-yyhyb"
         val app = io.realm.mongodb.App(AppConfiguration.Builder(appID).build())
-/*        val config = RealmConfiguration.Builder().name("Project 0").build()
-        val backgroundThreadRealm : Realm = Realm.getInstance(config)*/
+//        val realmApp :RealmApp.create(appConfig)
         val realm =Realm.getDefaultInstance()
+
+
         galleryButton = binding.selectButton
         galleryButtonText = binding.profilepictext
         galleryButton.setOnClickListener {
@@ -120,6 +144,24 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 users.address = addr
                 users.image = "imageUrl"
 
+          /*      val database = client.getDatabase("patalParadisedb")
+                val collection = database.getCollection("users")
+                val document = Document("name","fisrtUser")
+                document.append("email","fisrtuser@gmail.com")
+                collection.insertOne(document)
+                val task1 = collection.find()
+                Log.v("EXAMPLE", "collection :$task1")*/
+
+
+                val document = Document()
+                document.append("_id",users._id)
+                document.append("username",users.username)
+                document.append("email",users.email)
+                document.append("mobilenumber",users.mobilenumber)
+                document.append("dob",users.dob)
+                document.append("address",users.address)
+                document.append("image",users.image)
+//                collection.insertOne(document)
                 realm.executeTransactionAsync{
                     realm->
                     realm.createObject(Users::class.java, users._id).apply {
@@ -140,11 +182,18 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 viewModel.registerUsers(userData)
 
                 //login user
-                app.loginAsync(Credentials.emailPassword(email, password)) { result ->
+                fragmentManager?.commit {
+                    setReorderingAllowed(true)
+                    // Replace whatever is in the fragment_container view with this fragment
+                    replace<LoginFragment>(R.id.fragmentContainerView)
+                    addToBackStack(null)
+                }
+                /*app.loginAsync(Credentials.emailPassword(email, password)) { result ->
                     if (result.isSuccess) {
                         // Successful login, navigate to main activity
                         val user: io.realm.mongodb.User? = app.currentUser()!!
                         val email = user?.profile?.email
+                        Log.d("V","email:$email")
                         val realm = Realm.getDefaultInstance()
                         val task = realm.where(Users::class.java).equalTo("email", email).findFirst()
                         val intent = Intent(context, ShoppingActivity::class.java)
@@ -163,7 +212,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                         val errorMessage = result.error.errorMessage
                         Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
                     }
-                }
+                }*/
      /*           val task = realm.where(Users::class.java).findAllAsync()
                 Log.v("EXAMPLE", "Fetched object by primary key: $task")*/
 

@@ -20,6 +20,7 @@ import io.realm.mongodb.Credentials
 class LoginFragment: Fragment(R.layout.fragment_login) {
     private lateinit var binding: FragmentLoginBinding
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
