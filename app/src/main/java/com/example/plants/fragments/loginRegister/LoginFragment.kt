@@ -98,7 +98,9 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                         intent.putExtra("address",task?.address)
                         intent.putExtra("image",""/*task?.image*/)
                         startActivity(intent)
-                       activity?.finish()
+                        binding.loginTV.visibility = View.VISIBLE
+                        binding.loginProgessBar.visibility = View.INVISIBLE
+//                       activity?.finish()
                     } else {
                         // Failed login, display error message
                         binding.loginTV.visibility = View.VISIBLE
