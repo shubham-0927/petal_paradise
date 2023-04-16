@@ -43,7 +43,7 @@
     <ImageView
         android:id="@+id/img_detect"
         android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:layout_marginTop="16dp"
         tools:ignore="HardcodedText,MissingConstraints"
         android:contentDescription="plant image display here"
@@ -75,17 +75,38 @@
         android:layout_marginStart="10dp"
         android:textColor="@color/green_blue"/>
     <TextView
+        android:id="@+id/searchTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Long press the on the image to save it. Click on plant name for more details."
+        android:layout_marginStart="36dp"
+        android:text="Click to web Search"
+        android:textColor="@color/green_blue"
+        android:padding="10dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/about_img"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <Button
+        android:id="@+id/plantdetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:background="@drawable/ovalbutton"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toEndOf="@id/searchTV"
+        app:layout_constraintTop_toBottomOf="@id/output_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:ems="15"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintTop_toBottomOf="@id/about_img"
+        android:text="Long press the on the image to save it. Click on plant name for more details."
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:textSize="15sp"/>
+        app:layout_constraintTop_toBottomOf="@+id/searchTV" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
