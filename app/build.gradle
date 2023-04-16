@@ -120,7 +120,12 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 /*    implementation 'io.realm.mongodb:realm-mongodb-android:10.7.0'
     implementation 'io.realm.mongodb:realm-sync:10.7.0'*/
+    implementation ('org.mongodb:mongodb-driver-sync:4.3.0'){
+        exclude module: 'javax.naming'
+    }
+    implementation 'javax.naming:jndi:1.2.1'
 
+    //java driver
 
     //loading button
     implementation 'br.com.simplepass:loading-button-android:2.2.0'
