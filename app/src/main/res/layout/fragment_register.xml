@@ -21,16 +21,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/Create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_thin"
             android:text="Create Account"
-            android:layout_marginLeft="70dp"
             android:textColor="@color/white"
             android:textSize="30sp"
             tools:ignore="HardcodedText" />
@@ -54,7 +54,6 @@
             android:layout_marginTop="10dp"
             android:autofillHints=""
             android:background="@drawable/line"
-            android:drawableLeft=""
             android:drawableTint="@color/white"
             android:gravity="left"
             android:hint="enter username"

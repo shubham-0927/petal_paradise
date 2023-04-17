@@ -23,11 +23,6 @@ import com.example.plants.databinding.FragmentRegisterBinding
 import com.example.plants.fragments.shopping.PlantDetailsFragment
 import com.example.plants.viewmodel.RegisterViewModel
 import com.example.plants.viewmodel.RegisterViewModelFactory
-import com.mongodb.ConnectionString
-import com.mongodb.MongoClientSettings
-import com.mongodb.client.MongoClient
-import com.mongodb.client.MongoClients
-import com.mongodb.client.MongoDatabase
 import io.realm.ImportFlag
 import io.realm.Realm
 import io.realm.kotlin.internal.interop.RealmAppT
@@ -43,8 +38,6 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var viewModel: RegisterViewModel
     val PICK_IMAGE_REQUEST = 1
-    lateinit var galleryButton: Button
-    lateinit var galleryButtonText : TextView
 
 
     override fun onCreateView(
@@ -89,12 +82,8 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
         val realm =Realm.getDefaultInstance()
 
 
-        galleryButton = binding.selectButton
-        galleryButtonText = binding.profilepictext
-        galleryButton.setOnClickListener {
-            Toast.makeText(context, "select a image", Toast.LENGTH_SHORT).show()
-            openGallery()
-        }
+//        galleryButton = binding.selectButton
+//        galleryButtonText = binding.profilepictext
         viewModel = ViewModelProvider(this, RegisterViewModelFactory(app)).get(RegisterViewModel::class.java)
         binding.register.setOnClickListener{
 
@@ -104,8 +93,8 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
             val repass = binding.retypePass.text.toString()
             val username = binding.usernameET.text.toString()
             val mobilenumber = binding.mobilenumber.text.toString()
-            val dob = binding.birthdate.text.toString()
-            val addr = binding.address.text.toString()
+//            val dob = binding.birthdate.text.toString()
+//            val addr = binding.address.text.toString()
             val userData = UserData(email,password)
             //create new Users object
             val users = Users()
@@ -118,16 +107,11 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 Toast.makeText(context, "Empty Email field", Toast.LENGTH_SHORT).show()
             } else if(mobilenumber.isEmpty()){
                 Toast.makeText(context, "Empty mobile number field", Toast.LENGTH_SHORT).show()
-            } else if (dob.isEmpty()){
-                Toast.makeText(context, "Enter dob", Toast.LENGTH_SHORT).show()
-            }else if (password.length<6){
+            } else if (password.length<6){
                 Toast.makeText(context, "length of password >6", Toast.LENGTH_SHORT).show()
             } else if (repass != password){
                 Toast.makeText(context, "password is not matching", Toast.LENGTH_SHORT).show()
-            }else if(task >0){
-                Toast.makeText(context, "email already exists", Toast.LENGTH_SHORT).show()
-                Log.v("EXAMPLE", "Fetched object by primary key: $task")
-            }else{
+            } else{
 /*                val task : Task = Task()
                 task.name = "New Task"
 
@@ -140,8 +124,8 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 users.username = username
                 users.email = email
                 users.mobilenumber = mobilenumber
-                users.dob = dob
-                users.address = addr
+                users.dob = ""
+                users.address = ""
                 users.image = "imageUrl"
 
           /*      val database = client.getDatabase("patalParadisedb")
@@ -249,7 +233,6 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
             cursor?.moveToFirst()
             val imageName = cursor?.getString(0)
             cursor?.close()
-            galleryButtonText.text = imageName
         }
     }
 

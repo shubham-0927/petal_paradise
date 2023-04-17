@@ -29,31 +29,28 @@
         app:layout_constraintTop_toBottomOf="@id/view1">
 
 
-
-
-
-
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="597dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <!-- First Card Starts here -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view1"
                     android:layout_width="match_parent"
-                    android:minHeight="112dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    app:contentPadding="6dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp"
-                    app:cardCornerRadius="8dp">
+                    android:minHeight="112dp"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="6dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -72,7 +69,7 @@
                                 android:id="@+id/imageView1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/plant1" />
+                                app:srcCompat="@drawable/rose" />
                         </androidx.cardview.widget.CardView>
 
                         <!-- Details Section -->
@@ -86,49 +83,52 @@
                             <!-- Title -->
                             <TextView
                                 android:id="@+id/textView1"
-                                android:fontFamily="@font/poppins_thin"
-                                android:textSize="20dp"
-                                android:letterSpacing=".3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rose" />
+                                android:fontFamily="@font/poppins_thin"
+                                android:letterSpacing=".3"
+                                android:text="Rose"
+                                android:textSize="20dp" />
 
                             <!-- Species -->
                             <TextView
                                 android:id="@+id/textView1.1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
                                 android:fontFamily="@font/poppins_thin"
-                                android:textSize="20dp"
-                                android:text="Species" />
+                                android:text="Species"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
 
                             <!-- Price -->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
+
                                 <TextView
                                     android:id="@+id/quantity"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text="2 " />
+                                    android:text="2 "
+                                    android:textSize="20dp" />
+
                                 <TextView
                                     android:id="@+id/cross"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" x " />
+                                    android:text=" x "
+                                    android:textSize="20dp" />
+
                                 <TextView
                                     android:id="@+id/price"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" $120 " />
+                                    android:text=" $120 "
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -139,14 +139,15 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view2"
                     android:layout_width="match_parent"
-                    android:minHeight="112dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    app:contentPadding="6dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="8dp"
-                    app:cardCornerRadius="8dp">
+                    android:layout_marginBottom="20dp"
+                    android:minHeight="112dp"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="6dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -165,7 +166,7 @@
                                 android:id="@+id/imageView2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/plant1" />
+                                app:srcCompat="@drawable/lavender" />
                         </androidx.cardview.widget.CardView>
 
                         <!-- Details Section -->
@@ -179,49 +180,52 @@
                             <!-- Title -->
                             <TextView
                                 android:id="@+id/textView2"
-                                android:fontFamily="@font/poppins_thin"
-                                android:textSize="20dp"
-                                android:letterSpacing=".3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Lavendar" />
+                                android:fontFamily="@font/poppins_thin"
+                                android:letterSpacing=".3"
+                                android:text="Lavendar"
+                                android:textSize="20dp" />
 
                             <!-- Species -->
                             <TextView
                                 android:id="@+id/textView2.1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
                                 android:fontFamily="@font/poppins_thin"
-                                android:textSize="20dp"
-                                android:text="Species" />
+                                android:text="Species"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
 
                             <!-- Price -->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
+
                                 <TextView
                                     android:id="@+id/quantity1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text="1 " />
+                                    android:text="1 "
+                                    android:textSize="20dp" />
+
                                 <TextView
                                     android:id="@+id/cross1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" x " />
+                                    android:text=" x "
+                                    android:textSize="20dp" />
+
                                 <TextView
                                     android:id="@+id/price1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" $100 " />
+                                    android:text=" $100 "
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -233,16 +237,18 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view3"
                     android:layout_width="match_parent"
-                    android:minHeight="112dp"
-
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    app:contentPadding="6dp"
                     android:layout_marginRight="8dp"
-                    app:cardCornerRadius="8dp">
+                    android:layout_marginBottom="20dp"
+                    android:minHeight="112dp"
+                    app:cardCornerRadius="8dp"
+                    app:contentPadding="6dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:elevation="20dp"
                         android:orientation="horizontal">
 
 
@@ -258,7 +264,7 @@
                                 android:id="@+id/imageView3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/plant1" />
+                                app:srcCompat="@drawable/tulip" />
                         </androidx.cardview.widget.CardView>
 
                         <!-- Details Section -->
@@ -272,49 +278,52 @@
                             <!-- Title -->
                             <TextView
                                 android:id="@+id/textView3"
-                                android:fontFamily="@font/poppins_thin"
-                                android:textSize="20dp"
-                                android:letterSpacing=".3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Tulip" />
+                                android:fontFamily="@font/poppins_thin"
+                                android:letterSpacing=".3"
+                                android:text="Tulip"
+                                android:textSize="20dp" />
 
                             <!-- Species -->
                             <TextView
                                 android:id="@+id/textView3.1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
                                 android:fontFamily="@font/poppins_thin"
-                                android:textSize="20dp"
-                                android:text=" Species" />
+                                android:text=" Species"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
 
                             <!-- Price -->
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
+
                                 <TextView
                                     android:id="@+id/quantity3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" 3 " />
+                                    android:text=" 3 "
+                                    android:textSize="20dp" />
+
                                 <TextView
                                     android:id="@+id/cross3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" x " />
+                                    android:text=" x "
+                                    android:textSize="20dp" />
+
                                 <TextView
                                     android:id="@+id/price3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
                                     android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" $145 " />
+                                    android:text=" $145 "
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -325,8 +334,14 @@
             </LinearLayout>
 
 
-
         </ScrollView>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Buy Now" />
 
 
 
