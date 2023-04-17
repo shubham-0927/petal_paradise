@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.example.plants.R
 import com.example.plants.adapters.HomeViewpagerAdapter
 import com.example.plants.databinding.FragmentHomeBinding
@@ -53,5 +55,14 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
                 4 -> tab.text = "Flower"
             }
         }.attach()
+        val clickableView = binding.extraLL
+        clickableView.setOnClickListener {
+            fragmentManager?.commit {
+                setReorderingAllowed(true)
+                // Replace whatever is in the fragment_container view with this fragment
+                replace<ProductDetailsFragment>(R.id.shoppinHostFragment)
+                addToBackStack(null)
+            }
+        }
     }
 }

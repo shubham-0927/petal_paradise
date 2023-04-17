@@ -40,6 +40,8 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
     private lateinit var imageView: ImageView
     private lateinit var button: Button
     private lateinit var tvOutput: TextView
+    private lateinit var websearch: TextView
+    private lateinit var plantdetails: Button
     private val GALLERY_REQUEST_CODE = 123
     private var resolver = ShoppingActivity()
     private var appContext = context /*ShoppingActivity().applicationContext*/
@@ -65,6 +67,8 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
         imageView = binding.imgDetect
         button = binding.btnCaptureImage
         tvOutput = binding.outputText
+        websearch = binding.searchTV
+        plantdetails = binding.plantdetails
         val buttonLoad = binding.btnLoadImage
         button.setOnClickListener{
             if(ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED)
@@ -88,9 +92,17 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
                 requestPermission.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
             }
         }
-        tvOutput.setOnClickListener {
-/*            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?g=${tvOutput.text}"))
-            startActivity(intent)*/
+        websearch.setOnClickListener {
+            if(tvOutput.text.toString().lowercase()=="none"){
+                Toast.makeText(context,"can't find plant",Toast.LENGTH_SHORT).show()
+            }else{
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?g=${tvOutput.text}"))
+                startActivity(intent)
+            }
+
+
+        }
+        plantdetails.setOnClickListener {
             fragmentManager?.commit {
                 setReorderingAllowed(true)
                 // Replace whatever is in the fragment_container view with this fragment

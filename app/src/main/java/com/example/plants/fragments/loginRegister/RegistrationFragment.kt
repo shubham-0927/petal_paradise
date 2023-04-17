@@ -153,6 +153,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 Log.v("EXAMPLE", "collection :$task1")*/
 
 
+
                 val document = Document()
                 document.append("_id",users._id)
                 document.append("username",users.username)
@@ -216,7 +217,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
      /*           val task = realm.where(Users::class.java).findAllAsync()
                 Log.v("EXAMPLE", "Fetched object by primary key: $task")*/
 
-                
+
             }
 
 

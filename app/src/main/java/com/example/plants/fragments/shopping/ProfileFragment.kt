@@ -14,6 +14,7 @@ import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.plants.R
+import com.example.plants.data.Users
 import com.example.plants.databinding.FragmentProfileBinding
 import com.example.plants.fragments.categories.About
 import com.example.plants.fragments.categories.MyOrders
@@ -52,8 +53,10 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
         emailaddr = binding.textView2
 
 
+        val users = Users()
         viewModel.email.observe(viewLifecycleOwner, { email->
             emailaddr.text = email
+            users.email = email
         })
         viewModel.username.observe(viewLifecycleOwner, Observer { username->
             myusername.text = username
