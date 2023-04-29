@@ -103,13 +103,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <TextView
-                                    android:id="@+id/quantity"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text="2 " />
-                                <TextView
                                     android:id="@+id/cross"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -117,13 +110,21 @@
                                     android:textSize="20dp"
                                     android:text=" x " />
                                 <TextView
-                                    android:id="@+id/price"
+                                    android:id="@+id/quantity"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
                                     android:fontFamily="@font/poppins_thin"
                                     android:textSize="20dp"
-                                    android:text=" $120 " />
+                                    android:text="2 " />
+
+<!--                                <TextView-->
+<!--                                    android:id="@+id/price"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:fontFamily="@font/poppins_thin"-->
+<!--                                    android:textSize="20dp"-->
+<!--                                    android:text=" $120 " />-->
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -196,13 +197,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <TextView
-                                    android:id="@+id/quantity1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text="1 " />
-                                <TextView
                                     android:id="@+id/cross1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -210,13 +204,14 @@
                                     android:textSize="20dp"
                                     android:text=" x " />
                                 <TextView
-                                    android:id="@+id/price1"
+                                    android:id="@+id/quantity1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
                                     android:fontFamily="@font/poppins_thin"
                                     android:textSize="20dp"
-                                    android:text=" $100 " />
+                                    android:text="1 " />
+
+
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -289,13 +284,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <TextView
-                                    android:id="@+id/quantity3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_thin"
-                                    android:textSize="20dp"
-                                    android:text=" 3 " />
-                                <TextView
                                     android:id="@+id/cross3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -303,13 +291,14 @@
                                     android:textSize="20dp"
                                     android:text=" x " />
                                 <TextView
-                                    android:id="@+id/price3"
+                                    android:id="@+id/quantity3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/black"
                                     android:fontFamily="@font/poppins_thin"
                                     android:textSize="20dp"
-                                    android:text=" $145 " />
+                                    android:text=" 3 " />
+
+
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>

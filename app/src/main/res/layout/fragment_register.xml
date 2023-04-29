@@ -9,10 +9,11 @@
     android:layout_height="match_parent"
 
     android:background="@drawable/plant_background3">
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,196 +21,199 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/Create"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_thin"
-            android:text="Sign Up"
+            android:text="Create Account"
             android:textColor="@color/white"
             android:textSize="30sp"
             tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/ic_profile"
+            android:fontFamily="@font/poppins_thin"
+            android:text="  Username"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
+
         <EditText
             android:id="@+id/usernameET"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/ic_profile"
+            android:layout_width="420dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints=""
+            android:background="@drawable/line"
             android:drawableTint="@color/white"
-            android:gravity="center"
-            android:hint="User Name"
+            android:gravity="left"
+            android:hint="enter username"
             android:inputType="textPersonName"
             android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/g_blue_gray200"
             android:textSize="20sp"
-            android:autofillHints=""
             tools:ignore="HardcodedText,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:drawableLeft="@drawable/baseline_email_24"
+            android:fontFamily="@font/poppins_thin"
+            android:text="  Email"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/userEmailET"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/baseline_email_24"
-            android:gravity="center"
-            android:hint="Email"
+            android:layout_width="420dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/line"
+            android:gravity="left"
+            android:hint="enter valid email "
+            android:importantForAutofill="auto"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/g_blue_gray200"
             android:textSize="20sp"
-            android:autofillHints="emailAddress"
-            tools:ignore="HardcodedText,RtlHardcoded"
-            android:importantForAutofill="auto" />
+            tools:ignore="HardcodedText,RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:drawableLeft="@drawable/baseline_call_24"
+            android:fontFamily="@font/poppins_thin"
+            android:text="  Mobile number"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/mobilenumber"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/baseline_call_24"
-            android:gravity="center"
-            android:hint="Mobile Number"
+            android:layout_width="420dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/line"
+            android:gravity="left"
+            android:hint="10 digit phone number"
             android:inputType="phone"
             android:paddingStart="10dp"
+            android:paddingEnd="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/g_blue_gray200"
             android:textSize="20sp"
             tools:ignore="Autofill,HardcodedText,RtlHardcoded" />
 
-        <EditText
-            android:id="@+id/birthdate"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/baseline_date_range_24"
-            android:gravity="center"
-            android:hint="DOB (dd/mm/yyyy)"
-            android:inputType="date"
-            android:paddingStart="10dp"
+        <TextView
+            android:id="@+id/pswd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:drawableLeft="@drawable/baseline_vpn_key_24"
+            android:fontFamily="@font/poppins_thin"
+            android:text="  Password"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
             android:textSize="20sp"
-            tools:ignore="HardcodedText,RtlHardcoded"
-            android:importantForAutofill="no" />
-
-        <EditText
-            android:id="@+id/address"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/baseline_edit_location_24"
-            android:gravity="center"
-            android:hint="Your Address"
-            android:paddingStart="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            tools:ignore="Autofill,HardcodedText,RtlHardcoded,TextFields" />
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/baseline_vpn_key_24"
-            android:gravity="center"
-            android:hint="Password"
+            android:layout_width="420dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/line"
+            android:gravity="left"
+            android:hint="enter a strong password"
             android:inputType="textVisiblePassword"
             android:paddingStart="10dp"
+            android:paddingEnd="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/g_blue_gray200"
             android:textSize="20sp"
             tools:ignore="Autofill,HardcodedText,RtlHardcoded" />
+
+
+        <TextView
+            android:id="@+id/repswd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:drawableLeft="@drawable/baseline_vpn_key_24"
+            android:fontFamily="@font/poppins_thin"
+            android:text="  Re-enter Password"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/retypePass"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:paddingEnd="20dp"
-            android:background="@drawable/ovalbutton"
-            android:drawableLeft="@drawable/baseline_vpn_key_24"
-            android:gravity="center"
-            android:hint="Retype Password"
+            android:layout_width="420dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/line"
+            android:gravity="left"
+            android:hint="re enter the password"
             android:inputType="textVisiblePassword"
             android:paddingStart="10dp"
+            android:paddingEnd="20dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/g_blue_gray200"
             android:textSize="20sp"
             tools:ignore="Autofill,HardcodedText,RtlHardcoded" />
 
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ovalbutton2"
-            tools:ignore="HardcodedText">
-
-            <Button
-                android:id="@+id/selectButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ovalbutton"
-                android:text="Choose"
-                android:layout_marginStart="10dp"
-                android:textAllCaps="false"
-                tools:ignore="HardcodedText"/>
-
-            <TextView
-                android:id="@+id/profilepictext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="upload profile pic"
-                android:textColor="@color/black"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/register"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="50dp"
             android:background="@drawable/ovalbutton1"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="30dp">
+
+            >
+
             <ProgressBar
                 android:id="@+id/register_progess_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:visibility="invisible"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/registerTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:text="Register"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:visibility="visible"
-                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

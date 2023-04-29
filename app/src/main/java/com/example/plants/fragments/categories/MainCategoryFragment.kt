@@ -54,13 +54,13 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
         recyclerView2 = binding.rvBestProducts
 //        recyclerView2.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         val plantDataList = listOf(
-            PlantSellData(R.drawable.plant1, "Plant 1","$200"),
-            PlantSellData(R.drawable.plant1, "Plant 2","$200"),
-            PlantSellData(R.drawable.plant1, "Plant 3","$200"),
-            PlantSellData(R.drawable.plant1, "Plant 4","$200"),
-            PlantSellData(R.drawable.plant1, "Plant 5","$200"),
-            PlantSellData(R.drawable.plant1, "Plant 6","$200"),
-            PlantSellData(R.drawable.plant1, "Plant 7","$200")
+            PlantSellData(R.drawable.p1, "English Ivy","$200"),
+            PlantSellData(R.drawable.p2, "Bird Nest Fern","$120"),
+            PlantSellData(R.drawable.plant1, "Snake Plant","$400"),
+            PlantSellData(R.drawable.p3, "Pothos","$300"),
+            PlantSellData(R.drawable.p4, "Boston Fern","$380"),
+            PlantSellData(R.drawable.p5, "Aloe Vera","$100"),
+            PlantSellData(R.drawable.p6, "Spider Plant","$230")
         )
 /*        productAdapter = ProductAdapter(requireContext(), plantDataList)
         recyclerView2.adapter = productAdapter*/
