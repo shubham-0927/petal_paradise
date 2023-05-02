@@ -36,11 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.43091655" />
+        app:layout_constraintGuide_end="416dp" />
 <ScrollView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:layout_constraintBottom_toTopOf="@+id/guideline4"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/guideline2">
@@ -140,6 +140,7 @@
             tools:layout_editor_absoluteX="10dp">
 
             <TextView
+                android:id="@+id/sunlight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -150,6 +151,7 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
+                android:id="@+id/watering"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -159,6 +161,7 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
+                android:id="@+id/temperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -168,6 +171,7 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
+                android:id="@+id/space"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -188,6 +192,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/green"
                 android:padding="10dp"
+                android:layout_marginBottom="15dp"
                 android:text="BUY NOW"
                 android:textSize="20sp"
                 app:layout_constraintGuide_percent="0" />

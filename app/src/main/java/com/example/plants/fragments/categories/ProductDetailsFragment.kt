@@ -6,27 +6,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.example.plants.R
 import com.example.plants.databinding.FragmentProductDetailsBinding
-import com.example.plants.databinding.FragmentProfileBinding
-import com.example.plants.databinding.FragmentSearchBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.chromium.base.ThreadUtils.runOnUiThread
 import org.json.JSONException
 import org.json.JSONObject
+import java.net.URL
 
 class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
     private lateinit var binding: FragmentProductDetailsBinding
+    private lateinit var plantScienticficName: TextView
+    private lateinit var plantCommonName : TextView
 
-    companion object {
-        const val ARG_PLANT_NAME = "rose"
-        const val TREFLE_API_URL = "https://trefle.io/api/v1/plants/"
-        const val TREFLE_API_KEY = "JVQ4vaC5o6bsgZRbm_m5je2iV6BYarJPXXKySuGpqsM"
-    }
+    companion object;
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,74 +38,63 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-/*    companion object {
-        fun newInstance(title: String): ProductDetailsFragment {
-            val args = Bundle()
-            args.putString("title", title)
-            val fragment = ProductDetailsFragment()
-            fragment.arguments = args
-            return fragment
-        }
-    }*/
+        plantCommonName = binding.tvCommonName
+        plantScienticficName = binding.tvScientificName
+        // Use a coroutine to make the network request in a background thread
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // Make a GET request to the API endpoint
+                val url = URL("https://plants-api-production-f1f2.up.railway.app/api/plants")
+                val jsonString = url.readText()
+//                Log.d("TAG", "json fetched: $jsonString")
 
-        var plantName = arguments?.getString(ARG_PLANT_NAME)
-
-        plantName = "rose"
-        // Request plant details from Trefle API
-        val queue = Volley.newRequestQueue(requireContext())
-        if (plantName != null) {
-            val url = "https://trefle.io/api/v1/plants/search?token=JVQ4vaC5o6bsgZRbm_m5je2iV6BYarJPXXKySuGpqsM&q=jade"
-
-            val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
-                { response ->
-                    val data = response.getJSONArray("data")
-
-                    if (data.length() > 0) {
-                        val plantDetails = data.getJSONObject(0)
-                        Log.d("TAG", "JSON keys: ${plantDetails.keys().asSequence().toList()}")
-                        /*val commonName = plantDetails.getString("common_name")
-                        val habitats = plantDetails.getJSONArray("main_species").getJSONObject(0).getJSONArray("habitats")
-                            .let { 0.until(it.length()).map { i -> it.optJSONObject(i) } }
-                            .mapNotNull { it?.getString("name") }
-                            .joinToString(", ")
-                        val description = plantDetails.getString("wiki_description")*/
-
-                        val commonName = plantDetails.optString("common_name", "Unknown")
-                        val aboutPlant = "Genus: "+plantDetails.optString("genus", "Unknown") + " " +" Family:"+ plantDetails.optString("family_common_name", "Unknown")
-                       /* val habitats = plantDetails.getJSONArray("main_species").getJSONObject(0).getJSONArray("habitats")
-                            .let { 0.until(it.length()).map { i -> it.optJSONObject(i) } }
-                            .mapNotNull { it?.getString("name") }
-                            .joinToString(", ")
-                        val mainSpecies = plantDetails.optJSONObject("main_species")
-                        val imageURL = mainSpecies?.optJSONArray("images")?.optJSONObject(0)?.optString("url", "")
-
-// Check if main_species exists before accessing its properties
-                        val flower = mainSpecies?.optString("flower", "Unknown")
-                        val fruit = mainSpecies?.optString("fruit", "Unknown")
-                        val foliage = mainSpecies?.optString("foliage", "Unknown")
-                        val scientificName = mainSpecies?.optString("scientific_name", "Unknown")*/
-
-                        val scientificName = plantDetails.getString("scientific_name")
-                        val genusName = plantDetails.getString("genus")
-                        val familyName = plantDetails.getString("family")
-                        val synonyms = plantDetails.getJSONArray("synonyms")
-                        // Do something with the fetched details
-                        binding.tvCommonName.text = commonName
-                        binding.tvAboutPlant.text = aboutPlant + " synonyms" +synonyms
-                        binding.tvScientificName.text = scientificName
-                    } else {
-                        // Handle the case where no plant details were found
+                try {
+                    val jsonObject = JSONObject(jsonString)
+                    val plantsArray = jsonObject.getJSONArray("plants")
+                    var plantDesc = ""
+                    var plantname = ""
+                    var plantSci = ""
+                    var plantSunlight = ""
+                    var plantWatering =""
+                    var plantTemp = ""
+                    var plantSpace = ""
+                    for (i in 0 until plantsArray.length()) {
+                        val plantObject = plantsArray.getJSONObject(i)
+                        val name = plantObject.getString("name")
+                        val desc = plantObject.getString("desc")
+                        val sci = plantObject.getString("commonname")
+                        val sunlight = plantObject.getString("sunlight")
+                        val water = plantObject.getString("watering")
+                        val temp = plantObject.getString("temperature")
+                        val space = plantObject.getString("space")
+                        if (sci == "Asplenium nidus") {
+                            plantDesc = desc
+                            plantname = name
+                            plantSci = sci
+                            plantSunlight = sunlight
+                            plantWatering = water
+                            plantTemp = temp
+                            plantSpace = space
+                            break
+                        }
                     }
-                },
-                { error ->
-                    // Handle any errors
-                }
-            )
+                    runOnUiThread{
+                        plantCommonName.text = plantname
+                        binding.tvAboutPlant.text = plantDesc
+                        plantScienticficName.text = plantSci
+                        binding.sunlight.text = plantSunlight
+                        binding.watering.text = plantWatering
+                        binding.temperature.text = plantTemp
+                        binding.space.text = plantSpace
+                    }
 
-            queue.add(jsonObjectRequest)
-        } else {
-            // Handle the case where plantName is null
-            Toast.makeText(context, "plant name not found", Toast.LENGTH_SHORT).show()
+                } catch (e: JSONException) {
+                    Log.e("JSON Error", e.message ?: "Unknown error occurred")
+                }
+
+            }catch (e :Exception){
+                Log.d("E", "exception $e")
+            }
         }
     }
 }
