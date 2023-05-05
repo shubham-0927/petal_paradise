@@ -8,29 +8,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
 import com.example.plants.R
-import com.example.plants.activities.ShoppingActivity
 import com.example.plants.data.UserData
 import com.example.plants.data.Users
 import com.example.plants.databinding.FragmentRegisterBinding
-import com.example.plants.fragments.shopping.PlantDetailsFragment
 import com.example.plants.viewmodel.RegisterViewModel
 import com.example.plants.viewmodel.RegisterViewModelFactory
 import io.realm.ImportFlag
 import io.realm.Realm
-import io.realm.kotlin.internal.interop.RealmAppT
-import io.realm.kotlin.mongodb.App
+import io.realm.kotlin.where
 import io.realm.mongodb.AppConfiguration
 import io.realm.mongodb.Credentials
+import io.realm.mongodb.sync.Subscription
 import io.realm.mongodb.sync.SyncConfiguration
-import org.bson.Document
 import java.util.*
 
 
@@ -52,30 +47,6 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view :View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         Realm.init( context)
-/*        val connectionString =
-            (*//* connectionString = *//* "mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority")
-        val settings = MongoClientSettings.builder()
-            .applyConnectionString(connectionString)
-            .build()
-        val mongoClient = MongoClients.create(settings)
-        val database = mongoClient.getDatabase("patalParadisedb")*/
-
-/*        val uri = "mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority"
-        val connString = ConnectionString(uri);
-        val mongoClient : MongoClient = MongoClients.create(connString)
-        val database: MongoDatabase = mongoClient.getDatabase("patalParadisedb")*/
-
-/*        val uri = MongoClientURI("mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority")
-        val client = MongoClients.create(uri.toString())
-        val database =client.getDatabase("patalParadisedb")*/
-
-/*        val settings = MongoClientSettings.builder()
-            .applyConnectionString(ConnectionString("mongodb+srv://Master:%30%5FRAtlas%5Fadms%40PRS@atlascluster.npc8jrq.mongodb.net/?retryWrites=true&w=majority"))
-            .build()
-        val client = MongoClients.create(settings)*/
-//        val collection = database.getCollection("users")
-
-
         val appID = "application-0-yyhyb"
         val app = io.realm.mongodb.App(AppConfiguration.Builder(appID).build())
 //        val realmApp :RealmApp.create(appConfig)
@@ -127,41 +98,46 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                 users.dob = ""
                 users.address = ""
                 users.image = "imageUrl"
+                try {
+                    app.loginAsync(Credentials.anonymous()){
+                            result -> if(result.isSuccess){
+                        try {
+                            val flexibleSyncConfig = SyncConfiguration.Builder(app.currentUser())
+                                .waitForInitialRemoteData()
+                                .initialSubscriptions { realm, subscriptions ->
+                                     subscriptions.add(
+                                    Subscription.create(
+                                        realm.where<Users>()
+                                    )
+                                )
+                                }.build()
+                            val realm = Realm.getInstance(flexibleSyncConfig)
+                            realm.executeTransactionAsync{
+                                    realm->
+                                val users = Users().apply {
+                                    this.username=  users.username
+                                    this.email = users.email
+                                    this.mobilenumber = users.mobilenumber
+                                    this.dob = users.dob
+                                    this.address = users.address
+                                    this.image = users.image
 
-          /*      val database = client.getDatabase("patalParadisedb")
-                val collection = database.getCollection("users")
-                val document = Document("name","fisrtUser")
-                document.append("email","fisrtuser@gmail.com")
-                collection.insertOne(document)
-                val task1 = collection.find()
-                Log.v("EXAMPLE", "collection :$task1")*/
 
+                                }
+                                realm.insertOrUpdate(users)
+                                realm.copyToRealmOrUpdate(users,
+                                    ImportFlag.CHECK_SAME_VALUES_BEFORE_SET)
+                            }
 
-
-                val document = Document()
-                document.append("_id",users._id)
-                document.append("username",users.username)
-                document.append("email",users.email)
-                document.append("mobilenumber",users.mobilenumber)
-                document.append("dob",users.dob)
-                document.append("address",users.address)
-                document.append("image",users.image)
-//                collection.insertOne(document)
-                realm.executeTransactionAsync{
-                    realm->
-                    realm.createObject(Users::class.java, users._id).apply {
-                    this.username=  users.username
-                    this.email = users.email
-                    this.mobilenumber = users.mobilenumber
-                    this.dob = users.dob
-                    this.address = users.address
-                    this.image = users.image
-                    realm.insertOrUpdate(users)
-                        realm.copyToRealmOrUpdate(users,
-                            ImportFlag.CHECK_SAME_VALUES_BEFORE_SET)
-
+                        }catch (e :Exception){
+                            Log.e("transaction","exception $e")
+                        }
                     }
+                    }
+                }catch (e:Exception){
+                    Log.e("login_anonymous","exception $e")
                 }
+
 
                 //register user to realm using viewmodel
                 viewModel.registerUsers(userData)
@@ -173,33 +149,7 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
                     replace<LoginFragment>(R.id.fragmentContainerView)
                     addToBackStack(null)
                 }
-                /*app.loginAsync(Credentials.emailPassword(email, password)) { result ->
-                    if (result.isSuccess) {
-                        // Successful login, navigate to main activity
-                        val user: io.realm.mongodb.User? = app.currentUser()!!
-                        val email = user?.profile?.email
-                        Log.d("V","email:$email")
-                        val realm = Realm.getDefaultInstance()
-                        val task = realm.where(Users::class.java).equalTo("email", email).findFirst()
-                        val intent = Intent(context, ShoppingActivity::class.java)
 
-                        intent.putExtra("email",task?.email)
-                        intent.putExtra("username",task?.username)
-                        intent.putExtra("mobilenumber",task?.mobilenumber)
-                        intent.putExtra("dob",task?.dob)
-                        intent.putExtra("address",task?.address)
-                        intent.putExtra("image",task?.image)
-                        startActivity(intent)
-                        Toast.makeText(context, "Successfully registered and login", Toast.LENGTH_SHORT).show()
-                        activity?.finish()
-                    } else {
-                        // Failed login, display error message
-                        val errorMessage = result.error.errorMessage
-                        Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
-                    }
-                }*/
-     /*           val task = realm.where(Users::class.java).findAllAsync()
-                Log.v("EXAMPLE", "Fetched object by primary key: $task")*/
 
 
             }

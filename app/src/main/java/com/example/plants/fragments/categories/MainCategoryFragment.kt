@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +14,6 @@ import com.example.plants.adapters.ProductAdapter
 import com.example.plants.data.CardData
 import com.example.plants.data.PlantSellData
 import com.example.plants.databinding.FragmentMainCategoryBinding
-import com.example.plants.databinding.FragmentSearchBinding
-import com.example.plants.fragments.shopping.PlantDetailsFragment
 
 class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     private lateinit var binding: FragmentMainCategoryBinding
@@ -36,6 +32,43 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        val appID = "application-0-yyhyb"
+//        val app = App(AppConfiguration.Builder(appID).build())
+
+        /*try {
+            app.loginAsync(Credentials.anonymous()){
+                    result -> if(result.isSuccess){
+                try {
+                    val flexibleSyncConfig = SyncConfiguration.Builder(app.currentUser())
+                        .waitForInitialRemoteData()
+                        .initialSubscriptions { realm, subscriptions ->
+                        }.build()
+                    val realm = Realm.getInstance(flexibleSyncConfig)
+                    realm.executeTransactionAsync { transactionRealm ->
+                        *//*val syncedObjects = transactionRealm.where<Users>().findAll()
+//                        transactionRealm.insert(user)
+                        syncedObjects.forEach { syncedObject ->
+                            // Use copyToRealmOrUpdate() to insert or update objects in your local Realm
+                            Log.i("Realm","syncObjects $syncedObject ")
+                            transactionRealm.copyToRealmOrUpdate(syncedObject)
+                        }
+                        val user = transactionRealm.where(Users::class.java).equalTo("_id","2").findAll()
+                        Log.i("transactionRealm","users details: $user ")*//*
+                    }
+                }catch (e :Exception){
+                    Log.e("transaction","exception $e")
+                }
+            }else{
+
+            }
+            }
+        }catch (e:Exception){
+            Log.e("login_anonymous","exception $e")
+        }
+*/
+
+
         recyclerView = binding.rvSpecialProducts
         recyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

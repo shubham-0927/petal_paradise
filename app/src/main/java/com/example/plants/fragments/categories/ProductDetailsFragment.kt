@@ -20,7 +20,7 @@ import java.net.URL
 
 class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
     private lateinit var binding: FragmentProductDetailsBinding
-    private lateinit var plantScienticficName: TextView
+    private lateinit var plantScientificName: TextView
     private lateinit var plantCommonName : TextView
 
     companion object;
@@ -39,7 +39,7 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
         super.onViewCreated(view, savedInstanceState)
 
         plantCommonName = binding.tvCommonName
-        plantScienticficName = binding.tvScientificName
+        plantScientificName = binding.tvScientificName
         // Use a coroutine to make the network request in a background thread
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -81,7 +81,7 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
                     runOnUiThread{
                         plantCommonName.text = plantname
                         binding.tvAboutPlant.text = plantDesc
-                        plantScienticficName.text = plantSci
+                        plantScientificName.text = plantSci
                         binding.sunlight.text = plantSunlight
                         binding.watering.text = plantWatering
                         binding.temperature.text = plantTemp

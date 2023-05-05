@@ -2,18 +2,20 @@ package com.example.plants.data
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
-import io.realm.annotations.Required
-import org.bson.types.ObjectId
-open class Users: RealmObject(){
+
+open class Users(
     @PrimaryKey
-    var _id: String =""
-    @Required
-    var email:String=""
-    var username: String =""
-    var mobilenumber:String=""
-    var dob: String=""
+    var _id: String = "",
 
-    var address: String =""
+    var address: String = "",
 
-    var image:String=""
-}
+    var dob: String = "",
+
+    var email: String = "",
+
+    var image: String = "",
+
+    var mobilenumber: String = "",
+
+    var username: String = ""
+): RealmObject() {}
