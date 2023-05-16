@@ -1,12 +1,15 @@
 package com.example.plants.fragments.categories
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.plants.R
 import com.example.plants.databinding.FragmentProductDetailsBinding
@@ -37,6 +40,10 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
     @SuppressLint("IntentReset")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            val window : Window? = activity?.window
+            window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.white)
+        }
 
         plantCommonName = binding.tvCommonName
         plantScientificName = binding.tvScientificName
@@ -68,6 +75,7 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
                         val temp = plantObject.getString("temperature")
                         val space = plantObject.getString("space")
                         if (sci == "Asplenium nidus") {
+
                             plantDesc = desc
                             plantname = name
                             plantSci = sci
@@ -75,10 +83,12 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
                             plantWatering = water
                             plantTemp = temp
                             plantSpace = space
+
                             break
                         }
                     }
                     runOnUiThread{
+                        binding.imageView5.setImageResource(R.drawable.p2crop)
                         plantCommonName.text = plantname
                         binding.tvAboutPlant.text = plantDesc
                         plantScientificName.text = plantSci

@@ -69,61 +69,66 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                     res -> if(res.isSuccess){
                     app.loginAsync(Credentials.anonymous()) { result ->
                         if (result.isSuccess) {
-
-                            val flexibleSyncConfig = SyncConfiguration.Builder(app.currentUser())
-                                .waitForInitialRemoteData()
-                                .initialSubscriptions { realm, subscriptions ->
-                                    /* subscriptions.add(
-                                         Subscription.create(
-                                             realm.where<Users>()
-                                         )
-                                     )*/
-                                }.build()
-                            val realm = Realm.getInstance(flexibleSyncConfig)
-
-
                             try {
-                                realm.executeTransactionAsync { transactionRealm ->
-                                    /*val user = Users().apply {
-                                        _id = "2"
-                                        email = "qwer@gmail.com"
-                                    }
-                                    transactionRealm.insert(user)*/
-                                    val syncedObjects = transactionRealm.where<Users>().equalTo("email",username).findAll()
+                                val flexibleSyncConfig = SyncConfiguration.Builder(app.currentUser())
+                                    .waitForInitialRemoteData()
+                                    .initialSubscriptions { realm, subscriptions ->
+                                        /* subscriptions.add(
+                                             Subscription.create(
+                                                 realm.where<Users>()
+                                             )
+                                         )*/
+                                    }.build()
+//                                val realm = Realm.getInstance(flexibleSyncConfig)
+
+                                val realm = Realm.getDefaultInstance()
+
+                                try {
+                                    realm.executeTransactionAsync { transactionRealm ->
+                                        /*val user = Users().apply {
+                                            _id = "2"
+                                            email = "qwer@gmail.com"
+                                        }
+                                        transactionRealm.insert(user)*/
+                                        val syncedObjects = transactionRealm.where<Users>().equalTo("email",username).findAll()
 //                        transactionRealm.insert(user)
-                                    syncedObjects.forEach { syncedObject ->
-                                        // Use copyToRealmOrUpdate() to insert or update objects in your local Realm
-                                        Log.i("Realm","syncObjects $syncedObject ")
-                                        transactionRealm.copyToRealmOrUpdate(syncedObject)
+                                        syncedObjects.forEach { syncedObject ->
+                                            // Use copyToRealmOrUpdate() to insert or update objects in your local Realm
+                                            Log.i("Realm","syncObjects $syncedObject ")
+                                            transactionRealm.copyToRealmOrUpdate(syncedObject)
+                                        }
+                                        val user = transactionRealm.where(Users::class.java).equalTo("_id","2").findAll()
+                                        Log.i("transactionRealm","users details: $user ")
                                     }
-                                    val user = transactionRealm.where(Users::class.java).equalTo("_id","2").findAll()
-                                    Log.i("transactionRealm","users details: $user ")
+                                }catch (e :Exception){
+                                    Log.e("transaction","exception $e")
                                 }
-                            }catch (e :Exception){
-                                Log.e("transaction","exception $e")
+
+                                val user: User? = app.currentUser()!!
+                                val email = user?.profile?.email
+                                // val realm = Realm.getDefaultInstance()
+                                val task = realm.where(Users::class.java).equalTo("email", username).findFirst()
+
+                                // Successful login, navigate to main activity and pass user details to shopping activity
+                                Log.v("EXAMPLE", "Fetched task username: ${task?.username}")
+                                Log.v("EXAMPLE", "Fetched task: $task")
+                                Log.v("EXAMPLE", "Fetched object by primary key: $email")
+                                val intent = Intent(context, ShoppingActivity::class.java)
+                                intent.putExtra("email",username)
+                                intent.putExtra("username",task?.username)
+                                intent.putExtra("mobilenumber",task?.mobilenumber)
+                                intent.putExtra("dob",task?.dob)
+                                intent.putExtra("address",task?.address)
+                                intent.putExtra("image",""/*task?.image*/)
+                                startActivity(intent)
+                                binding.loginTV.visibility = View.VISIBLE
+                                binding.loginProgessBar.visibility = View.INVISIBLE
+//                       activity?.finish()
+                                realm.close()
+                            }catch (e : Exception){
+                                Log.e("loginSync","exception $e")
                             }
 
-                            val user: User? = app.currentUser()!!
-                            val email = user?.profile?.email
-                            // val realm = Realm.getDefaultInstance()
-                            val task = realm.where(Users::class.java).equalTo("email", username).findFirst()
-
-                            // Successful login, navigate to main activity and pass user details to shopping activity
-                            Log.v("EXAMPLE", "Fetched task username: ${task?.username}")
-                            Log.v("EXAMPLE", "Fetched task: $task")
-                            Log.v("EXAMPLE", "Fetched object by primary key: $email")
-                            val intent = Intent(context, ShoppingActivity::class.java)
-                            intent.putExtra("email",username)
-                            intent.putExtra("username",task?.username)
-                            intent.putExtra("mobilenumber",task?.mobilenumber)
-                            intent.putExtra("dob",task?.dob)
-                            intent.putExtra("address",task?.address)
-                            intent.putExtra("image",""/*task?.image*/)
-                            startActivity(intent)
-                            binding.loginTV.visibility = View.VISIBLE
-                            binding.loginProgessBar.visibility = View.INVISIBLE
-//                       activity?.finish()
-                            realm.close()
                         } else {
                             // Failed login, display error message
                             binding.loginTV.visibility = View.VISIBLE

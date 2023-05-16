@@ -27,7 +27,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import com.example.plants.R
 import com.example.plants.activities.ShoppingActivity
 import com.example.plants.databinding.FragmentSearchBinding
@@ -42,6 +41,7 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
     private lateinit var tvOutput: TextView
     private lateinit var websearch: TextView
     private lateinit var plantdetails: Button
+    private lateinit var bitmapImage: Bitmap
     private val GALLERY_REQUEST_CODE = 123
     private var resolver = ShoppingActivity()
     private var appContext = context /*ShoppingActivity().applicationContext*/
@@ -102,11 +102,18 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
 
 
         }
+        bitmapImage =  BitmapFactory.decodeResource(resources,R.drawable.empty)
         plantdetails.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putParcelable("image", bitmapImage)
+            bundle.putString("outputName", tvOutput.text.toString())
+            Log.v("plantdetails","plant bitimage $bitmapImage")
+            val fragmentB = PlantDetailsFragment()
+            fragmentB.arguments = bundle
             fragmentManager?.commit {
                 setReorderingAllowed(true)
                 // Replace whatever is in the fragment_container view with this fragment
-                replace<PlantDetailsFragment>(R.id.shoppinHostFragment)
+                replace(R.id.shoppinHostFragment, fragmentB)
                 addToBackStack(null)
             }
         }
@@ -126,6 +133,7 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
 
     private val takePicturePreview = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
         bitmap->if(bitmap != null) {
+        bitmapImage = bitmap
             imageView.setImageBitmap(bitmap)
             outputGenerator(bitmap)
         }
