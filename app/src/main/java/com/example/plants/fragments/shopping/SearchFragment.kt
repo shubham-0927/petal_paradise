@@ -107,7 +107,7 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
             val bundle = Bundle()
             bundle.putParcelable("image", bitmapImage)
             bundle.putString("outputName", tvOutput.text.toString())
-            Log.v("plantdetails","plant bitimage $bitmapImage")
+//            Log.v("plantdetails","plant bitimage $bitmapImage")
             val fragmentB = PlantDetailsFragment()
             fragmentB.arguments = bundle
             fragmentManager?.commit {
@@ -131,6 +131,7 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private val takePicturePreview = registerForActivityResult(ActivityResultContracts.TakePicturePreview()){
         bitmap->if(bitmap != null) {
         bitmapImage = bitmap

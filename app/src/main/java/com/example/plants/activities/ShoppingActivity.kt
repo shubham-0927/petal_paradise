@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.example.plants.R
 import com.example.plants.databinding.ActivityMainBinding
+import com.example.plants.fragments.recommendation.PlaceFragment
 import com.example.plants.fragments.shopping.CartFragment
 import com.example.plants.fragments.shopping.HomeFragment
 import com.example.plants.fragments.shopping.ProfileFragment
@@ -58,6 +58,12 @@ class ShoppingActivity : AppCompatActivity() {
                     setReorderingAllowed(true)
                     // Replace whatever is in the fragment_container view with this fragment
                     replace<ProfileFragment>(R.id.shoppinHostFragment)
+                }
+                R.id.placeFragment ->fragmentManager.commit {
+                    setReorderingAllowed(true)
+                    binding.imageView6
+                    // Replace whatever is in the fragment_container view with this fragment
+                    replace<PlaceFragment>(R.id.shoppinHostFragment)
                 }
 
                 else -> {

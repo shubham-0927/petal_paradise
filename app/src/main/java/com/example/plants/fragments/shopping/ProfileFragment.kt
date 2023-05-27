@@ -20,6 +20,7 @@ import com.example.plants.fragments.categories.About
 import com.example.plants.fragments.categories.MyOrders
 import com.example.plants.fragments.categories.Settings
 import com.example.plants.fragments.categories.UpdateProfile
+import com.example.plants.fragments.recommendation.PlaceFragment
 import com.example.plants.viewmodel.UserDetailsViewModel
 
 class ProfileFragment: Fragment(R.layout.fragment_profile) {
@@ -41,6 +42,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
         val myOrdersBtn = binding.myOrders
         val settingsBtn = binding.settings
         val aboutBtn = binding.about
+        val recommend = binding.recommend
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -99,6 +101,15 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
                 setReorderingAllowed(true)
                 // Replace whatever is in the fragment_container view with this fragment
                 replace<About>(R.id.shoppinHostFragment) //shoppingHostFragment id of frame
+                addToBackStack("to_profile")
+            }
+        }
+        recommend.setOnClickListener{
+//            Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_updateFragment)
+            fragmentManager?.commit {
+                setReorderingAllowed(true)
+                // Replace whatever is in the fragment_container view with this fragment
+                replace<PlaceFragment>(R.id.shoppinHostFragment) //shoppingHostFragment id of frame
                 addToBackStack("to_profile")
             }
         }

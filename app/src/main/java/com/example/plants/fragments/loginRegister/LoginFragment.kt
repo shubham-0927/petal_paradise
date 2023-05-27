@@ -79,19 +79,25 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                                              )
                                          )*/
                                     }.build()
-//                                val realm = Realm.getInstance(flexibleSyncConfig)
+                                val realm = Realm.getInstance(flexibleSyncConfig)
 
-                                val realm = Realm.getDefaultInstance()
+//                                val realm = Realm.getDefaultInstance()
 
                                 try {
                                     realm.executeTransactionAsync { transactionRealm ->
-                                        /*val user = Users().apply {
-                                            _id = "2"
-                                            email = "qwer@gmail.com"
+                                       /* val users = Users().apply {
+                                            this._id = "2"
+                                            this.username = "qwer"
+                                            this.dob = "10/10/2000"
+                                            this.image = "foweiji"
+                                            this.mobilenumber ="4487589755"
+                                            this.address = "ofjio"
+                                            this.email = "qwer2@gmail.com"
                                         }
-                                        transactionRealm.insert(user)*/
-                                        val syncedObjects = transactionRealm.where<Users>().equalTo("email",username).findAll()
+                                        transactionRealm.insert(users)*/
+                                        val syncedObjects = transactionRealm.where<Users>().findAll()
 //                        transactionRealm.insert(user)
+                                        Log.i("Realm","syncObjects $syncedObjects ")
                                         syncedObjects.forEach { syncedObject ->
                                             // Use copyToRealmOrUpdate() to insert or update objects in your local Realm
                                             Log.i("Realm","syncObjects $syncedObject ")
