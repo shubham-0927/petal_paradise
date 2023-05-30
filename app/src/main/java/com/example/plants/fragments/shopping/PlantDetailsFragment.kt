@@ -19,7 +19,6 @@ import androidx.fragment.app.Fragment
 import com.example.plants.R
 import com.example.plants.data.Plants
 import com.example.plants.databinding.FragmentPlantDetailBinding
-import io.realm.ImportFlag
 import io.realm.Realm
 import io.realm.kotlin.where
 import io.realm.mongodb.App
@@ -89,10 +88,18 @@ class PlantDetailsFragment: Fragment(R.layout.fragment_plant_detail) {
 
                     try {
                         realm.executeTransactionAsync { transactionRealm ->
-                            val plant = Plants().apply {
+                            /*val plant = Plants().apply {
 //                                _id = UUID.randomUUID().toString()
-                                _id = "1"
-                                name = "plant1"
+{"_id":{"$oid":"6475e4ef7ae580bdbff10acd"},
+"category":"indoor",
+"commonname":"snake plant",
+"details":"The snake plant is a carefree, resilient houseplant that makes a bold, architectural statement in your home with tall, swordlike leaves and unique variegation. Tolerant of most growing conditions, it is an ideal plant for beginners or those who want an easy-to-grow houseplant",
+"name":"Dracaena trifasciata",
+"size":"small","space":"50-60cm",
+"sunlight":"medium",
+"temperature":"25-40C",
+"watering":"1L/month"}
+
                             }
                             Log.e("trnsaction","check point 1")
                             transactionRealm.insertOrUpdate(plant)
@@ -103,10 +110,10 @@ class PlantDetailsFragment: Fragment(R.layout.fragment_plant_detail) {
                                 transactionRealm.insertOrUpdate(plant)
                             }catch (exp : Exception){
                                 Log.e("trnsaction","exception $exp")
-                            }
+                            }*/
 
                             val syncedObjects =
-                                transactionRealm.where<Plants>().equalTo("name", "plant1").findAll()
+                                transactionRealm.where<Plants>().equalTo("name", "Dracaena trifasciata").findAll()
 //                        transactionRealm.insert(user)
                             syncedObjects.forEach { syncedObject ->
                                 // Use copyToRealmOrUpdate() to insert or update objects in your local Realm
@@ -114,8 +121,7 @@ class PlantDetailsFragment: Fragment(R.layout.fragment_plant_detail) {
                                 transactionRealm.copyToRealmOrUpdate(syncedObject)
                             }
                             val plant_res =
-                                transactionRealm.where(Plants::class.java).equalTo("_id", "1")
-                                    .findAll()
+                                transactionRealm.where(Plants::class.java).findAll()
                             Log.i("transactionRealm", "Plant details: $plant_res ")
                         }
                     } catch (e: Exception) {

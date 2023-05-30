@@ -1,11 +1,14 @@
 package com.example.plants.fragments.recommendation
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.plants.R
@@ -27,6 +30,10 @@ class PlaceFragment: Fragment(R.layout.fragment_place) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            val window : Window? = activity?.window
+            window?.statusBarColor = ContextCompat.getColor(requireContext(),R.color.green_100)
+        }
         indoor = binding.indoor
         outdoor = binding.outdoor
         back = binding.icon2

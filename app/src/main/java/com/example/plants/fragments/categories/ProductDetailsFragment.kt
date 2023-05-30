@@ -51,7 +51,7 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 // Make a GET request to the API endpoint
-                val url = URL("https://plants-api-production-f1f2.up.railway.app/api/plants")
+                val url = URL("https://plants-api-production-ad1b.up.railway.app/api/plants")
                 val jsonString = url.readText()
 //                Log.d("TAG", "json fetched: $jsonString")
 
