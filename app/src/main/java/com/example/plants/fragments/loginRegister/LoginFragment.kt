@@ -13,7 +13,6 @@ import com.example.plants.activities.ShoppingActivity
 import com.example.plants.data.Users
 import com.example.plants.databinding.FragmentLoginBinding
 import io.realm.Realm
-import io.realm.kotlin.where
 import io.realm.mongodb.App
 import io.realm.mongodb.AppConfiguration
 import io.realm.mongodb.Credentials
@@ -67,11 +66,8 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                 binding.loginProgessBar.visibility = View.VISIBLE
                 app.loginAsync(Credentials.emailPassword(username,password)){
                     res -> if(res.isSuccess){
-                    app.loginAsync(Credentials.anonymous()) { result ->
-                        if (result.isSuccess) {
                             try {
                                 val flexibleSyncConfig = SyncConfiguration.Builder(app.currentUser())
-                                    .waitForInitialRemoteData()
                                     .initialSubscriptions { realm, subscriptions ->
                                         /* subscriptions.add(
                                              Subscription.create(
@@ -95,7 +91,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                                             this.email = "qwer2@gmail.com"
                                         }
                                         transactionRealm.insert(users)*/
-                                        val syncedObjects = transactionRealm.where<Users>().findAll()
+                                       /* val syncedObjects = transactionRealm.where<Users>().findAll()
 //                        transactionRealm.insert(user)
                                         Log.i("Realm","syncObjects $syncedObjects ")
                                         syncedObjects.forEach { syncedObject ->
@@ -104,7 +100,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                                             transactionRealm.copyToRealmOrUpdate(syncedObject)
                                         }
                                         val user = transactionRealm.where(Users::class.java).equalTo("_id","2").findAll()
-                                        Log.i("transactionRealm","users details: $user ")
+                                        Log.i("transactionRealm","users details: $user ")*/
                                     }
                                 }catch (e :Exception){
                                     Log.e("transaction","exception $e")
@@ -130,7 +126,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                                 binding.loginTV.visibility = View.VISIBLE
                                 binding.loginProgessBar.visibility = View.INVISIBLE
 //                       activity?.finish()
-                                realm.close()
+//                                realm.close()
                             }catch (e : Exception){
                                 Log.e("loginSync","exception $e")
                             }
@@ -139,17 +135,10 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                             // Failed login, display error message
                             binding.loginTV.visibility = View.VISIBLE
                             binding.loginProgessBar.visibility = View.INVISIBLE
-                            val errorMessage = result.error.errorMessage
+                            val errorMessage = res.error.errorMessage
                             Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
                         }
-                    }
-                }else {
-                    // Failed login, display error message
-                    binding.loginTV.visibility = View.VISIBLE
-                    binding.loginProgessBar.visibility = View.INVISIBLE
-                    val errorMessage = res.error.errorMessage
-                    Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
-                }
+
                     }
                 }else{
                 Toast.makeText(context, "Enter Email and Password", Toast.LENGTH_SHORT).show()
