@@ -14,13 +14,22 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSpecialProducts"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_margin="15dp"
+                android:scrollbars="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="MissingConstraints" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/g_gray700"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/rvSpecialProducts"
+                app:layout_constraintStart_toEndOf="@+id/rvSpecialProducts"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvBestProducts"

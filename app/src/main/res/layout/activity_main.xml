@@ -45,7 +45,7 @@
         android:layout_height="55dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/ritesh_circle"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="#CEECAB"
         android:padding="10dp"
         android:src="@drawable/planticon"
         app:layout_constraintBottom_toBottomOf="parent"
