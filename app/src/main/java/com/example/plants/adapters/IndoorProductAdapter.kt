@@ -10,10 +10,10 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plants.R
-import com.example.plants.data.PlantSellData
+import com.example.plants.data.IndoorPlantSellData
 
-class ProductAdapter(private val context: Context, private val plantDataList: List<PlantSellData>, private val fragmentManager: FragmentManager) :
-    RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class IndoorProductAdapter(private val context: Context, private val plantDataList: List<IndoorPlantSellData>, private val fragmentManager: FragmentManager) :
+    RecyclerView.Adapter<IndoorProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.img_product)

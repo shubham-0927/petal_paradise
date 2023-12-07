@@ -103,8 +103,8 @@
 
     <LinearLayout
         android:id="@+id/extraLL"
-        android:layout_width="60dp"
-        android:layout_height="47dp"
+        android:layout_width="155dp"
+        android:layout_height="63dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

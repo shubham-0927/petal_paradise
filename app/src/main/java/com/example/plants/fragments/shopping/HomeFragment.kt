@@ -1,6 +1,5 @@
 package com.example.plants.fragments.shopping
 
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,10 +37,10 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         }
         val categoriesFragments = arrayListOf<Fragment>(
             MainCategoryFragment(),
+            FlowerFragment(),
             IndoorFragment(),
-            OutdoorFragment(),
             BonsaiFragment(),
-            FlowerFragment()
+
         )
 
         val viewpager2Adapter = HomeViewpagerAdapter(categoriesFragments, childFragmentManager,lifecycle)
@@ -49,10 +48,10 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         TabLayoutMediator(binding.tabLayout, binding.viewpagerHome){ tab, position ->
             when (position){
                 0 -> tab.text = "Home"
-                1 -> tab.text = "Indoor"
-                2 -> tab.text = "Outdoor"
+                1 -> tab.text = "Flower"
+                2 -> tab.text = "Indoor"
                 3 -> tab.text = "Bonsai"
-                4 -> tab.text = "Flower"
+
             }
         }.attach()
         val clickableView = binding.extraLL

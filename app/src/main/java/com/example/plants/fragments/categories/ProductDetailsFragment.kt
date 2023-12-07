@@ -25,8 +25,20 @@ class ProductDetailsFragment:Fragment(R.layout.fragment_product_details) {
     private lateinit var binding: FragmentProductDetailsBinding
     private lateinit var plantScientificName: TextView
     private lateinit var plantCommonName : TextView
+    private lateinit var productName: String
 
-    companion object;
+    companion object {
+        private const val ARG_PRODUCT_NAME = "product_name"
+
+        // Factory method to create a new instance of the fragment
+        fun newInstance(productName: String): ProductDetailsFragment {
+            val fragment = ProductDetailsFragment()
+            val args = Bundle()
+            args.putString(ARG_PRODUCT_NAME, productName)
+            fragment.arguments = args
+            return fragment
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

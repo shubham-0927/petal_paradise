@@ -45,15 +45,65 @@
 
         <TextView
             android:id="@+id/tv_ad_price"
-            android:layout_width="80dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/sf_pro_display"
-            android:text="$1600"
+            android:text="₹160"
             tools:ignore="HardcodedText"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/tv_ad_name"
             app:layout_constraintTop_toBottomOf="@id/tv_ad_name" />
+
+        <TextView
+            android:id="@+id/tv_dis_price"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display"
+            android:text="₹80"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/sign"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ad_name"
+            tools:ignore="HardcodedText" />
+        <TextView
+        android:id="@+id/sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display"
+        android:text="-->"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_ad_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ad_name"
+        tools:ignore="HardcodedText" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buy"
+
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ovalbutton1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign">
+
+
+            <TextView
+                android:id="@+id/loginTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to cart"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!--        br.com.simplepass.loadingbutton.customViews.CircularProgressButton-->
         <!--            android:id="@+id/btn_add_to_cart"-->
@@ -72,20 +122,30 @@
         <!--            tools:ignore="MissingClass" />-->
 
         <LinearLayout
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/icon_background"
+            android:background="@color/g_red"
+            android:paddingStart="5dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="7dp"
-                android:src="@drawable/ic_favorite" />
+            <TextView
+                android:id="@+id/tv_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="50%"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OFF"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
 

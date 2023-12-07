@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plants.R
 import com.example.plants.data.CardData
 
-class CardAdapter(private val context: Context, private val cardDataList: List<CardData>) :
-    RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class BonsaiCardAdapter(private val context: Context, private val cardDataList: List<CardData>) :
+    RecyclerView.Adapter<BonsaiCardAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.img_ad)

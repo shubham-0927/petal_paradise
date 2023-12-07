@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plants.R
 import com.example.plants.data.PlantSellData
 
-class ProductAdapter(private val context: Context, private val plantDataList: List<PlantSellData>, private val fragmentManager: FragmentManager) :
-    RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class FlowerProductAdapter(private val context: Context, private val plantDataList: List<PlantSellData>, private val fragmentManager: FragmentManager) :
+    RecyclerView.Adapter<FlowerProductAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.img_product)
