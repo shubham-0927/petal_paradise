@@ -47,7 +47,8 @@ class RegistrationFragment: Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view :View, savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
         Realm.init( context)
-        val appID = "application-0-yyhyb"
+        val APPID = getString(R.string.appID)
+        val appID = APPID
         val app = io.realm.mongodb.App(AppConfiguration.Builder(appID).build())
 //        val realmApp :RealmApp.create(appConfig)
         val realm =Realm.getDefaultInstance()
