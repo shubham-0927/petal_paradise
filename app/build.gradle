@@ -26,6 +26,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    viewBinding {
+        enabled = true
+    }
     configurations {
         all{
             exclude group: 'javax.naming', module:'jndi'

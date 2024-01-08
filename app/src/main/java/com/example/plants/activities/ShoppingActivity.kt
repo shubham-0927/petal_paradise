@@ -1,6 +1,6 @@
 package com.example.plants.activities
 
-import android.os.Bundle
+import  android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit

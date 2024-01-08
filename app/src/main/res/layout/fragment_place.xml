@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -14,10 +15,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Select the place:"
+            android:text="Select the place"
             android:textSize="20sp"
-            android:gravity="center_vertical"
-            android:layout_marginStart="5dp"
+            android:gravity="center"
+
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_thin"/>
         <View
@@ -25,68 +26,160 @@
             android:layout_height="2dp"
             android:layout_marginTop="20dp"
             android:background="#c0c0c0" />
-        <TextView
-            android:id="@+id/indoor"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Indoor"
-            android:textSize="15sp"
-            android:gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/poppins_light"
-            android:textColor="@color/black"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#c0c0c0" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="5dp"
-            android:background="#c0c0c0" />
-        <TextView
-            android:id="@+id/outdoor"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Outdoor"
-            android:textSize="15sp"
-            android:gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/poppins_light"
-            android:textColor="@color/black"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#c0c0c0" />
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp">
 
-            <ImageView
-                android:id="@+id/icon1"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/indoor"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginHorizontal="70dp"
+                android:background="@drawable/card_border"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/angle_right" />
-            <ImageView
-                android:id="@+id/icon2"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:rotation="180"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.431"
-                app:srcCompat="@drawable/angle_right" />
+                app:layout_constraintVertical_bias="0.07999998">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Indoor"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="25dp"
+                        app:srcCompat="@drawable/adeniumpink" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/outdoor"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="70dp"
+                app:cardElevation="10dp"
+                android:background="@drawable/card_border"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/indoor">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:paddingTop="10dp"
+
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Outdoor"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:padding="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/adenium" />
+                </LinearLayout>
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--        <TextView-->
+<!--            android:id="@+id/indoor"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:text="Indoor"-->
+<!--            android:textSize="15sp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:fontFamily="@font/poppins_light"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginBottom="5dp"/>-->
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:background="#c0c0c0" />-->
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:background="#c0c0c0" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/outdoor"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:text="Outdoor"-->
+<!--            android:textSize="15sp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:fontFamily="@font/poppins_light"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginBottom="5dp"/>-->
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="2dp"-->
+<!--            android:background="#c0c0c0" />-->
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="50dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/icon1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="30dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:srcCompat="@drawable/angle_right" />-->
+<!--            <ImageView-->
+<!--                android:id="@+id/icon2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:rotation="180"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.431"-->
+<!--                app:srcCompat="@drawable/angle_right" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
     </LinearLayout>
 
 

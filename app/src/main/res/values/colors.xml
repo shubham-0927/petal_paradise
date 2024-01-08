@@ -18,6 +18,8 @@
     <color name="g_search_and_icons">#FAFBFC</color>
     <color name="g_line">#E9EAEC</color>
     <color name="g_blue100">#B8D9FA</color>
+    <color name="koala_box">#4E4467</color>
+    <color name="input_theme">#E9E7DB</color>
     <color name="g_red">#FF0000</color>
     <color name="g_gray500">#969899</color>
     <color name="g_orange_yellow">#F8BA00</color>

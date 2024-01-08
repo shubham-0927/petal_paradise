@@ -1,0 +1,15 @@
+<!-- res/drawable/radio_button_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#4E4467" /> <!-- Set your desired background color -->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+    <item android:state_checked="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#E9E7DB" /> <!-- Set a different color for unchecked state -->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+</selector>

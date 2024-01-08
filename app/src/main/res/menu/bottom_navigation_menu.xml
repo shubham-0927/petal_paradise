@@ -8,7 +8,6 @@
         android:icon="@drawable/search"
         android:id="@+id/searchFragment"/>
     <item android:title="Recommandation"
-
         android:id="@+id/placeFragment"/>
     <item android:title="Cart"
         android:icon="@drawable/shopping_cart"
