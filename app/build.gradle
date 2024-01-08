@@ -39,7 +39,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            buildConfigField "String", "RealmAppId", "application-0-yyhyb"
         }
 
 /*        getByName("release") {

@@ -37,7 +37,8 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         context?.let { Realm.init(it) }
 
         // Initialize the MongoDB Realm app instance
-        val appID = "application-0-yyhyb"
+        val APPID = getString(R.string.appID)
+        val appID = APPID
         val app = App(AppConfiguration.Builder(appID).build())
 
         // Find views

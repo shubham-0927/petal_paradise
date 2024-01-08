@@ -21,39 +21,46 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_thin"
+            android:textStyle="bold"
             android:text="Category"
             android:textSize="20sp"
+            android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
         <TextView
+            android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:fontFamily="@font/poppins_light"
-            android:text="Indoor"
+            android:text="category"
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_thin"
+            android:textStyle="bold"
             android:text="Size"
+            android:textColor="@color/black"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
         <TextView
+            android:id="@+id/size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_light"
-            android:text="Small"
+            android:text="Size"
+            android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_thin"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="Plant"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
@@ -62,8 +69,8 @@
             android:id="@+id/plantNameSci"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_light"
-            android:text="Dracaena trifasciata"
+            android:textColor="@color/black"
+            android:text="Scientific name"
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
@@ -80,6 +87,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
@@ -93,11 +110,13 @@
 
 
             <TextView
-                android:id="@+id/common_name"
+                android:id="@+id/commonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_thin"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:paddingTop="5dp"
                 android:text="Common name"
                 android:textSize="22sp"
@@ -124,106 +143,126 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
             <TextView
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/poppins_light"
                 android:justificationMode="inter_word"
-                android:text="The snake plant is a carefree, resilient houseplant that makes a bold, architectural statement in your home with tall, swordlike leaves and unique variegation. Tolerant of most growing conditions, it is an ideal plant for beginners or those who want an easy-to-grow houseplant"
+                android:text=""
                 android:textSize="15sp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout5"
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:paddingTop="40dp"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/linearlayout4"
             tools:layout_editor_absoluteX="10dp">
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/linearlayout4"
+                tools:layout_editor_absoluteX="10dp">
 
-                android:contentDescription="Sunlight"
-                android:src="@drawable/baseline_wb_sunny_24"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:contentDescription="Sunlight"
+                    android:src="@drawable/baseline_wb_sunny_24"
+                    tools:ignore="HardcodedText" />
 
-                android:contentDescription="watering"
-                android:src="@drawable/drop"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:contentDescription="watering"
+                    android:src="@drawable/drop"
+                    tools:ignore="HardcodedText" />
 
-                android:contentDescription="Opt_temp"
-                android:src="@drawable/temperature"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:contentDescription="Opt_temp"
+                    android:src="@drawable/temperature"
+                    tools:ignore="HardcodedText" />
 
-                android:contentDescription="Space"
-                android:src="@drawable/program"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
 
+                    android:layout_weight="1"
+                    android:contentDescription="Space"
+                    android:src="@drawable/program"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:layout_editor_absoluteX="10dp">
+
+                <TextView
+                    android:id="@+id/sunlight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="Sun Light"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="1L/month"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="temperature"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/space"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_thin"
+                    android:text="Space"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-            tools:layout_editor_absoluteX="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
 
-                android:fontFamily="@font/poppins_thin"
-                android:text="Sun Light"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:fontFamily="@font/poppins_thin"
-                android:text="1L/month"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:fontFamily="@font/poppins_thin"
-                android:text="25-40 C"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_thin"
-                android:text="50-60cm"
-                tools:ignore="HardcodedText"
-                android:layout_weight="1"/>
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

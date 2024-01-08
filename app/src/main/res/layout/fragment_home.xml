@@ -24,15 +24,15 @@
             android:layout_weight="1"
             android:background="@drawable/search_box_background">
 
-            <TextView
-                android:layout_width="0dp"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_thin"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:singleLine="true"
-                android:text="Search Box"
+                android:hint="Search Box"
                 android:textColor="#919394"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"

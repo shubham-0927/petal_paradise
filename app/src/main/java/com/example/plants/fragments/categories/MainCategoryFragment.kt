@@ -33,7 +33,7 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val appID = "application-0-yyhyb"
+//        val appID = ""
 //        val app = App(AppConfiguration.Builder(appID).build())
 
         /*try {

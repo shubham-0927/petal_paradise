@@ -18,7 +18,7 @@ class LoginRegisterActivity : AppCompatActivity() {
 /*        Realm.init(this)
 
         // Initialize the MongoDB Realm app instance
-        val appID = "application-0-yyhyb"
+        val appID = ""
         val app = App(AppConfiguration.Builder(appID).build())
 
         // Find views
