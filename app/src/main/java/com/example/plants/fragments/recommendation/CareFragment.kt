@@ -1,20 +1,20 @@
 package com.example.plants.fragments.recommendation
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.LinearLayout
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.example.plants.R
-import androidx.appcompat.app.AppCompatActivity
 import com.example.plants.databinding.FragmentCareBinding
-import com.example.plants.fragments.shopping.SearchFragment
 import com.google.android.material.snackbar.Snackbar
 
 class CareFragment: Fragment(R.layout.fragment_care)  {
@@ -42,17 +42,14 @@ class CareFragment: Fragment(R.layout.fragment_care)  {
     }
 
     private val questions = listOf(
-        MCQQuestion("Heya Ritesh !! How you have been feeling lately?", listOf("Not great.", "Happy.", "Anxious.", "Depressed.")),
-        MCQQuestion("Ummm…I think you also get mood swings a lot.", listOf("Not at all.", "Several days.", "More than half a day -almost every day.")),
-        MCQQuestion("Well well Can u control the emotion like this character does.", listOf("No.", "Yes easily.", "Hard to say but can try.")),
-        MCQQuestion("So how’s life going?", listOf("Stress.", "Normal.", "Happy.", "Sad or Depressed.")),
-        MCQQuestion("Have you ever felt anxious or panic attack?", listOf("Yes.", "No.")),
-        MCQQuestion("So well I have a proper sleep schedule ! You tell me about yours.", listOf("Sleeps too much.", "Sleeps well.", "Can not Sleep properly.")),
-        MCQQuestion("I am a foodie I love food. What about you do you have a proper appetite?", listOf("Poor appetite.", "Over eating.", "Proper diet.")),
-        MCQQuestion("How’s the Josh ??  How’s ur energy level for now?", listOf("Low.", "Tired almost everyday.","Normal","Exited.")),
-        MCQQuestion("How well are you socially connected with other?", listOf("Introvert.", "Extrovert but now live alone.", "Have good social connects.")),
-        MCQQuestion("What do you feel about your life ?", listOf("Feeling of harming myself.", "Feeling of Sucide.", "Well not giving up so easily.","Blessed to be alive."))
-        // Add more MCQ questions with options here...
+        MCQQuestion("How much sunlight does the location receive?", listOf("Full Sun", "Partial Sun", "partial shade", "Shade")),
+        MCQQuestion("How often do you plan to water your plant?", listOf("Daily ", "Every 2-3 days.", "Weekly."," Bi-weekly")),
+        MCQQuestion("How much space do you have for your plant?.", listOf("Small tabletop.", "Medium-sized floor space", "Large floor space","Hanging option")),
+        MCQQuestion("How much time are you willing to invest in plant care?", listOf("Low maintenance.", "Moderate maintenance.", "High maintenance.", " I'm a plant enthusiast, no limits!")),
+        MCQQuestion("Are you interested in plants that change with the seasons?", listOf(" Yes, I love seasonal variety!.", " No, I prefer consistent appearance")),
+        MCQQuestion("Will the plant be kept indoors or outdoors?", listOf("Indoors", "Outdoors", "Both")),
+        MCQQuestion("How well can your chosen location maintain temperature?", listOf("Stable temperature", "Mild fluctuations", "Seasonal variations"," Extreme variations")),
+        MCQQuestion("What's the main purpose of your plant?", listOf("Decoration.", "Air purification"," Edible produce","Medicinal purposes")),
     )
 
     private val userResponses = mutableListOf<String>()
@@ -98,7 +95,7 @@ class CareFragment: Fragment(R.layout.fragment_care)  {
         if (currentQuestionIndex < questions.size) {
             displayCurrentQuestion()
         } else {
-           val fragmentSearch = SearchFragment()
+           val fragmentSearch = SuggestedplantFragment()
             fragmentManager?.commit {
                 setReorderingAllowed(true)
                 // Replace whatever is in the fragment_container view with this fragment
